@@ -1,0 +1,715 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3242A5D63490086C4B8 /* AppDelegate.swift */; };
+		BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */; };
+		BF05C3292A5D63490086C4B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3282A5D63490086C4B8 /* ViewController.swift */; };
+		BF05C32F2A5D63490086C4B8 /* Nanimo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF05C32D2A5D63490086C4B8 /* Nanimo.xcdatamodeld */; };
+		BF05C3312A5D634A0086C4B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF05C3302A5D634A0086C4B8 /* Assets.xcassets */; };
+		BF05C3342A5D634A0086C4B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF05C3322A5D634A0086C4B8 /* LaunchScreen.storyboard */; };
+		BF05C33F2A5D634A0086C4B8 /* NanimoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C33E2A5D634A0086C4B8 /* NanimoTests.swift */; };
+		BF05C3492A5D634A0086C4B8 /* NanimoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3482A5D634A0086C4B8 /* NanimoUITests.swift */; };
+		BF05C34B2A5D634A0086C4B8 /* NanimoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C34A2A5D634A0086C4B8 /* NanimoUITestsLaunchTests.swift */; };
+		BF05C35D2A5D65FE0086C4B8 /* .gitkeep in Resources */ = {isa = PBXBuildFile; fileRef = BF05C35C2A5D65FE0086C4B8 /* .gitkeep */; };
+		BF05C3602A5E515A0086C4B8 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C35F2A5E515A0086C4B8 /* View+Extension.swift */; };
+		BF05C3622A5E51750086C4B8 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3612A5E51750086C4B8 /* Color+Extension.swift */; };
+		BF05C3642A5E520F0086C4B8 /* Literal.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3632A5E520F0086C4B8 /* Literal.swift */; };
+		BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3662A5E55350086C4B8 /* MainViewController.swift */; };
+		BF05C36A2A5E6C180086C4B8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BF05C3692A5E6C180086C4B8 /* RxCocoa */; };
+		BF05C36C2A5E6C180086C4B8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF05C36B2A5E6C180086C4B8 /* RxSwift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF05C33B2A5D634A0086C4B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF05C3192A5D63490086C4B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF05C3202A5D63490086C4B8;
+			remoteInfo = Nanimo;
+		};
+		BF05C3452A5D634A0086C4B8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF05C3192A5D63490086C4B8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF05C3202A5D63490086C4B8;
+			remoteInfo = Nanimo;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		BF05C3212A5D63490086C4B8 /* Nanimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nanimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF05C3242A5D63490086C4B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		BF05C3282A5D63490086C4B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BF05C32E2A5D63490086C4B8 /* Nanimo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nanimo.xcdatamodel; sourceTree = "<group>"; };
+		BF05C3302A5D634A0086C4B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF05C3332A5D634A0086C4B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		BF05C3352A5D634A0086C4B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BF05C33A2A5D634A0086C4B8 /* NanimoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NanimoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF05C33E2A5D634A0086C4B8 /* NanimoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NanimoTests.swift; sourceTree = "<group>"; };
+		BF05C3442A5D634A0086C4B8 /* NanimoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NanimoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF05C3482A5D634A0086C4B8 /* NanimoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NanimoUITests.swift; sourceTree = "<group>"; };
+		BF05C34A2A5D634A0086C4B8 /* NanimoUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NanimoUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		BF05C35C2A5D65FE0086C4B8 /* .gitkeep */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitkeep; sourceTree = "<group>"; };
+		BF05C35F2A5E515A0086C4B8 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
+		BF05C3612A5E51750086C4B8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
+		BF05C3632A5E520F0086C4B8 /* Literal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Literal.swift; sourceTree = "<group>"; };
+		BF05C3662A5E55350086C4B8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF05C31E2A5D63490086C4B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF05C36C2A5E6C180086C4B8 /* RxSwift in Frameworks */,
+				BF05C36A2A5E6C180086C4B8 /* RxCocoa in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF05C3372A5D634A0086C4B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF05C3412A5D634A0086C4B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF05C3182A5D63490086C4B8 = {
+			isa = PBXGroup;
+			children = (
+				BF05C3232A5D63490086C4B8 /* Nanimo */,
+				BF05C33D2A5D634A0086C4B8 /* NanimoTests */,
+				BF05C3472A5D634A0086C4B8 /* NanimoUITests */,
+				BF05C3222A5D63490086C4B8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF05C3222A5D63490086C4B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF05C3212A5D63490086C4B8 /* Nanimo.app */,
+				BF05C33A2A5D634A0086C4B8 /* NanimoTests.xctest */,
+				BF05C3442A5D634A0086C4B8 /* NanimoUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF05C3232A5D63490086C4B8 /* Nanimo */ = {
+			isa = PBXGroup;
+			children = (
+				BF05C35E2A5E51470086C4B8 /* Extension */,
+				BF05C32D2A5D63490086C4B8 /* Nanimo.xcdatamodeld */,
+				BF05C3572A5D654A0086C4B8 /* Global */,
+				BF05C3582A5D65510086C4B8 /* View */,
+				BF05C3592A5D655B0086C4B8 /* Model */,
+				BF05C35A2A5D655F0086C4B8 /* Asset */,
+				BF05C3352A5D634A0086C4B8 /* Info.plist */,
+			);
+			path = Nanimo;
+			sourceTree = "<group>";
+		};
+		BF05C33D2A5D634A0086C4B8 /* NanimoTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF05C33E2A5D634A0086C4B8 /* NanimoTests.swift */,
+			);
+			path = NanimoTests;
+			sourceTree = "<group>";
+		};
+		BF05C3472A5D634A0086C4B8 /* NanimoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				BF05C3482A5D634A0086C4B8 /* NanimoUITests.swift */,
+				BF05C34A2A5D634A0086C4B8 /* NanimoUITestsLaunchTests.swift */,
+			);
+			path = NanimoUITests;
+			sourceTree = "<group>";
+		};
+		BF05C3572A5D654A0086C4B8 /* Global */ = {
+			isa = PBXGroup;
+			children = (
+				BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */,
+				BF05C3242A5D63490086C4B8 /* AppDelegate.swift */,
+				BF05C3322A5D634A0086C4B8 /* LaunchScreen.storyboard */,
+				BF05C3632A5E520F0086C4B8 /* Literal.swift */,
+			);
+			path = Global;
+			sourceTree = "<group>";
+		};
+		BF05C3582A5D65510086C4B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BF05C3652A5E55220086C4B8 /* Main */,
+				BF05C3282A5D63490086C4B8 /* ViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BF05C3592A5D655B0086C4B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF05C35C2A5D65FE0086C4B8 /* .gitkeep */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BF05C35A2A5D655F0086C4B8 /* Asset */ = {
+			isa = PBXGroup;
+			children = (
+				BF05C3302A5D634A0086C4B8 /* Assets.xcassets */,
+			);
+			path = Asset;
+			sourceTree = "<group>";
+		};
+		BF05C35E2A5E51470086C4B8 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BF05C35F2A5E515A0086C4B8 /* View+Extension.swift */,
+				BF05C3612A5E51750086C4B8 /* Color+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		BF05C3652A5E55220086C4B8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				BF05C3662A5E55350086C4B8 /* MainViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF05C3202A5D63490086C4B8 /* Nanimo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF05C34E2A5D634A0086C4B8 /* Build configuration list for PBXNativeTarget "Nanimo" */;
+			buildPhases = (
+				BF05C31D2A5D63490086C4B8 /* Sources */,
+				BF05C31E2A5D63490086C4B8 /* Frameworks */,
+				BF05C31F2A5D63490086C4B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Nanimo;
+			packageProductDependencies = (
+				BF05C3692A5E6C180086C4B8 /* RxCocoa */,
+				BF05C36B2A5E6C180086C4B8 /* RxSwift */,
+			);
+			productName = Nanimo;
+			productReference = BF05C3212A5D63490086C4B8 /* Nanimo.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF05C3392A5D634A0086C4B8 /* NanimoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF05C3512A5D634A0086C4B8 /* Build configuration list for PBXNativeTarget "NanimoTests" */;
+			buildPhases = (
+				BF05C3362A5D634A0086C4B8 /* Sources */,
+				BF05C3372A5D634A0086C4B8 /* Frameworks */,
+				BF05C3382A5D634A0086C4B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF05C33C2A5D634A0086C4B8 /* PBXTargetDependency */,
+			);
+			name = NanimoTests;
+			productName = NanimoTests;
+			productReference = BF05C33A2A5D634A0086C4B8 /* NanimoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		BF05C3432A5D634A0086C4B8 /* NanimoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF05C3542A5D634A0086C4B8 /* Build configuration list for PBXNativeTarget "NanimoUITests" */;
+			buildPhases = (
+				BF05C3402A5D634A0086C4B8 /* Sources */,
+				BF05C3412A5D634A0086C4B8 /* Frameworks */,
+				BF05C3422A5D634A0086C4B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF05C3462A5D634A0086C4B8 /* PBXTargetDependency */,
+			);
+			name = NanimoUITests;
+			productName = NanimoUITests;
+			productReference = BF05C3442A5D634A0086C4B8 /* NanimoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF05C3192A5D63490086C4B8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					BF05C3202A5D63490086C4B8 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
+					BF05C3392A5D634A0086C4B8 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = BF05C3202A5D63490086C4B8;
+					};
+					BF05C3432A5D634A0086C4B8 = {
+						CreatedOnToolsVersion = 14.3.1;
+						TestTargetID = BF05C3202A5D63490086C4B8;
+					};
+				};
+			};
+			buildConfigurationList = BF05C31C2A5D63490086C4B8 /* Build configuration list for PBXProject "Nanimo" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF05C3182A5D63490086C4B8;
+			packageReferences = (
+				BF05C3682A5E6C180086C4B8 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
+			productRefGroup = BF05C3222A5D63490086C4B8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF05C3202A5D63490086C4B8 /* Nanimo */,
+				BF05C3392A5D634A0086C4B8 /* NanimoTests */,
+				BF05C3432A5D634A0086C4B8 /* NanimoUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF05C31F2A5D63490086C4B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF05C35D2A5D65FE0086C4B8 /* .gitkeep in Resources */,
+				BF05C3342A5D634A0086C4B8 /* LaunchScreen.storyboard in Resources */,
+				BF05C3312A5D634A0086C4B8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF05C3382A5D634A0086C4B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF05C3422A5D634A0086C4B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF05C31D2A5D63490086C4B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF05C3292A5D63490086C4B8 /* ViewController.swift in Sources */,
+				BF05C3622A5E51750086C4B8 /* Color+Extension.swift in Sources */,
+				BF05C32F2A5D63490086C4B8 /* Nanimo.xcdatamodeld in Sources */,
+				BF05C3602A5E515A0086C4B8 /* View+Extension.swift in Sources */,
+				BF05C3642A5E520F0086C4B8 /* Literal.swift in Sources */,
+				BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */,
+				BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */,
+				BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF05C3362A5D634A0086C4B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF05C33F2A5D634A0086C4B8 /* NanimoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF05C3402A5D634A0086C4B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF05C34B2A5D634A0086C4B8 /* NanimoUITestsLaunchTests.swift in Sources */,
+				BF05C3492A5D634A0086C4B8 /* NanimoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF05C33C2A5D634A0086C4B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF05C3202A5D63490086C4B8 /* Nanimo */;
+			targetProxy = BF05C33B2A5D634A0086C4B8 /* PBXContainerItemProxy */;
+		};
+		BF05C3462A5D634A0086C4B8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF05C3202A5D63490086C4B8 /* Nanimo */;
+			targetProxy = BF05C3452A5D634A0086C4B8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF05C3322A5D634A0086C4B8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF05C3332A5D634A0086C4B8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF05C34C2A5D634A0086C4B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		BF05C34D2A5D634A0086C4B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF05C34F2A5D634A0086C4B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D9CAJN27UH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Nanimo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanimo.Nanimo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF05C3502A5D634A0086C4B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D9CAJN27UH;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Nanimo/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = "";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanimo.Nanimo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		BF05C3522A5D634A0086C4B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D9CAJN27UH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanimo.NanimoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nanimo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Nanimo";
+			};
+			name = Debug;
+		};
+		BF05C3532A5D634A0086C4B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D9CAJN27UH;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanimo.NanimoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Nanimo.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Nanimo";
+			};
+			name = Release;
+		};
+		BF05C3552A5D634A0086C4B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D9CAJN27UH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanimo.NanimoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Nanimo;
+			};
+			name = Debug;
+		};
+		BF05C3562A5D634A0086C4B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D9CAJN27UH;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nanimo.NanimoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Nanimo;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF05C31C2A5D63490086C4B8 /* Build configuration list for PBXProject "Nanimo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF05C34C2A5D634A0086C4B8 /* Debug */,
+				BF05C34D2A5D634A0086C4B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF05C34E2A5D634A0086C4B8 /* Build configuration list for PBXNativeTarget "Nanimo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF05C34F2A5D634A0086C4B8 /* Debug */,
+				BF05C3502A5D634A0086C4B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF05C3512A5D634A0086C4B8 /* Build configuration list for PBXNativeTarget "NanimoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF05C3522A5D634A0086C4B8 /* Debug */,
+				BF05C3532A5D634A0086C4B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF05C3542A5D634A0086C4B8 /* Build configuration list for PBXNativeTarget "NanimoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF05C3552A5D634A0086C4B8 /* Debug */,
+				BF05C3562A5D634A0086C4B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BF05C3682A5E6C180086C4B8 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BF05C3692A5E6C180086C4B8 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF05C3682A5E6C180086C4B8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		BF05C36B2A5E6C180086C4B8 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF05C3682A5E6C180086C4B8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		BF05C32D2A5D63490086C4B8 /* Nanimo.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				BF05C32E2A5D63490086C4B8 /* Nanimo.xcdatamodel */,
+			);
+			currentVersion = BF05C32E2A5D63490086C4B8 /* Nanimo.xcdatamodel */;
+			path = Nanimo.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = BF05C3192A5D63490086C4B8 /* Project object */;
+}
