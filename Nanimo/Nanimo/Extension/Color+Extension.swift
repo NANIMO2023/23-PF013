@@ -23,12 +23,31 @@ extension UIColor {
             blue: rgb & 0xFF
         )
     }
+    
 }
 
 extension UIColor {
-    /* 사용 예시
-    static var customSelectedGreen: UIColor {
-        return UIColor(rgb: 0x1C6974)
+    static var customChartGreen: UIColor {
+        return UIColor(rgb: 0xA2EE00)
     }
-     */
+    
+    static var customBackgroundGreen: UIColor {
+        return UIColor(rgb: 0xC4F1A9)
+    }
+    
+    static var customGreen: UIColor {
+        return UIColor(rgb: 0x47B802)
+    }
+    
+    static var detailBackgroundGrayButton: UIColor {
+        return UIColor(rgb: 0xD9D9D9)
+    }
+    
+    static var detailTextGrayButton: UIColor {
+        return UIColor(rgb: 0x1E1E1E)
+    }
+    
+    static var bulletGray: UIColor {
+        return UIColor(rgb: 0x777777)
+    }
 }
