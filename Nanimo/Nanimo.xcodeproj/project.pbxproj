@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3242A5D63490086C4B8 /* AppDelegate.swift */; };
 		BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */; };
-		BF05C3292A5D63490086C4B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3282A5D63490086C4B8 /* ViewController.swift */; };
 		BF05C32F2A5D63490086C4B8 /* Nanimo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF05C32D2A5D63490086C4B8 /* Nanimo.xcdatamodeld */; };
 		BF05C3312A5D634A0086C4B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF05C3302A5D634A0086C4B8 /* Assets.xcassets */; };
 		BF05C3342A5D634A0086C4B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF05C3322A5D634A0086C4B8 /* LaunchScreen.storyboard */; };
@@ -23,6 +22,11 @@
 		BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3662A5E55350086C4B8 /* MainViewController.swift */; };
 		BF05C36A2A5E6C180086C4B8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BF05C3692A5E6C180086C4B8 /* RxCocoa */; };
 		BF05C36C2A5E6C180086C4B8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF05C36B2A5E6C180086C4B8 /* RxSwift */; };
+		BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85332A72282F0030C02D /* Label+Extension.swift */; };
+		BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85362A724FDB0030C02D /* AudioPointMarkView.swift */; };
+		BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */; };
+		BF4D853C2A7250E50030C02D /* AudioEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D853B2A7250E50030C02D /* AudioEntity.swift */; };
+		BF4D853E2A728D4B0030C02D /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D853D2A728D4B0030C02D /* BulletView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +50,6 @@
 		BF05C3212A5D63490086C4B8 /* Nanimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nanimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF05C3242A5D63490086C4B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BF05C3282A5D63490086C4B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BF05C32E2A5D63490086C4B8 /* Nanimo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nanimo.xcdatamodel; sourceTree = "<group>"; };
 		BF05C3302A5D634A0086C4B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BF05C3332A5D634A0086C4B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -61,6 +64,11 @@
 		BF05C3612A5E51750086C4B8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		BF05C3632A5E520F0086C4B8 /* Literal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Literal.swift; sourceTree = "<group>"; };
 		BF05C3662A5E55350086C4B8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		BF4D85332A72282F0030C02D /* Label+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Extension.swift"; sourceTree = "<group>"; };
+		BF4D85362A724FDB0030C02D /* AudioPointMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPointMarkView.swift; sourceTree = "<group>"; };
+		BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEntityViewModel.swift; sourceTree = "<group>"; };
+		BF4D853B2A7250E50030C02D /* AudioEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEntity.swift; sourceTree = "<group>"; };
+		BF4D853D2A728D4B0030C02D /* BulletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +121,7 @@
 		BF05C3232A5D63490086C4B8 /* Nanimo */ = {
 			isa = PBXGroup;
 			children = (
+				BF4D85382A7250BA0030C02D /* ViewModel */,
 				BF05C35E2A5E51470086C4B8 /* Extension */,
 				BF05C32D2A5D63490086C4B8 /* Nanimo.xcdatamodeld */,
 				BF05C3572A5D654A0086C4B8 /* Global */,
@@ -155,8 +164,9 @@
 		BF05C3582A5D65510086C4B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF4D85352A724FBD0030C02D /* AudioChart */,
 				BF05C3652A5E55220086C4B8 /* Main */,
-				BF05C3282A5D63490086C4B8 /* ViewController.swift */,
+				BF4D853D2A728D4B0030C02D /* BulletView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -165,6 +175,7 @@
 			isa = PBXGroup;
 			children = (
 				BF05C35C2A5D65FE0086C4B8 /* .gitkeep */,
+				BF4D853B2A7250E50030C02D /* AudioEntity.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,6 +193,7 @@
 			children = (
 				BF05C35F2A5E515A0086C4B8 /* View+Extension.swift */,
 				BF05C3612A5E51750086C4B8 /* Color+Extension.swift */,
+				BF4D85332A72282F0030C02D /* Label+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -192,6 +204,22 @@
 				BF05C3662A5E55350086C4B8 /* MainViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		BF4D85352A724FBD0030C02D /* AudioChart */ = {
+			isa = PBXGroup;
+			children = (
+				BF4D85362A724FDB0030C02D /* AudioPointMarkView.swift */,
+			);
+			path = AudioChart;
+			sourceTree = "<group>";
+		};
+		BF4D85382A7250BA0030C02D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -332,11 +360,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF05C3292A5D63490086C4B8 /* ViewController.swift in Sources */,
+				BF4D853E2A728D4B0030C02D /* BulletView.swift in Sources */,
+				BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */,
 				BF05C3622A5E51750086C4B8 /* Color+Extension.swift in Sources */,
+				BF4D853C2A7250E50030C02D /* AudioEntity.swift in Sources */,
 				BF05C32F2A5D63490086C4B8 /* Nanimo.xcdatamodeld in Sources */,
 				BF05C3602A5E515A0086C4B8 /* View+Extension.swift in Sources */,
+				BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */,
 				BF05C3642A5E520F0086C4B8 /* Literal.swift in Sources */,
+				BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */,
 				BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */,
 				BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */,
 				BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */,
