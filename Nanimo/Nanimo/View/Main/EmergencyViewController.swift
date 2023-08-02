@@ -24,8 +24,6 @@ class EmergencyViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         [backgroundImage,minuteLabel, soundNotificationLabel, notifyButton, foldView].forEach { view.addSubview($0) }
-//        centerCircle.layer.cornerRadius = centerCircle.frame.width / 2
-        
         setLabel()
         setButton()
         createPulse()
@@ -52,7 +50,6 @@ class EmergencyViewController: UIViewController {
             if let filter = CIFilter(name:"CIGaussianBlur") {
                 filter.name = "myFilter"
                 pulseLayer.filters = [filter]
-//                pulseLayer.backgroundFilters =
                 pulseLayer.setValue(1,
                                forKeyPath: "backgroundFilters.myFilter.inputRadius")
             }
@@ -78,9 +75,7 @@ class EmergencyViewController: UIViewController {
     }
 
     func animatePulse(index: Int) {
-        
         pulseLayers[index].strokeColor = UIColor(white: 1.0, alpha: 0.5).cgColor
-
         
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
         scaleAnimation.duration = 2.5
@@ -97,13 +92,6 @@ class EmergencyViewController: UIViewController {
         opacityAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         opacityAnimation.repeatCount = .greatestFiniteMagnitude
         pulseLayers[index].add(opacityAnimation, forKey: "opacity")
-        
-//        let filterAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.filters))
-//        filterAnimation.duration = 2.5
-//        filterAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
-//        filterAnimation.repeatCount = .greatestFiniteMagnitude
-//        pulseLayers[index].add(filterAnimation, forKey: "filter")
-        
     }
     
     private func configureLayout() {
@@ -134,10 +122,5 @@ class EmergencyViewController: UIViewController {
         notifyButton.createButton(title: "주변에 알리기", titleSize: 28, titleColor: .white, backgroundColor: .black)
         notifyButton.layer.shadowRadius = 20
         notifyButton.layer.shadowColor = UIColor.black.cgColor
-    }
-    
-    func applyBlurFilter(_ input: CAShapeLayer) {
-        let blurFilter = CIFilter(name: "CIGaussianBlur")
-        blurFilter?.setValue(input, forKey: kCICategoryBlur)
     }
 }
