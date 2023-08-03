@@ -16,7 +16,6 @@ class EmergencyViewController: UIViewController {
     
     var pulseLayers = [CAShapeLayer]()
     private var backgroundImage = UIImageView(image: UIImage(named: "emergency-background.png"))
-    private var centerCircle = CustomCircleView()
     private var notifyButton = UIButton()
     private var foldView = FoldView()
     
@@ -26,10 +25,11 @@ class EmergencyViewController: UIViewController {
         [backgroundImage,minuteLabel, soundNotificationLabel, notifyButton, foldView].forEach { view.addSubview($0) }
         setLabel()
         setButton()
-        createPulse()
+        Task { await createPulse() }
         configureLayout()
     }
     
+    /*
     private func createPulse() {
  
         for _ in 0...3 {
@@ -73,12 +73,59 @@ class EmergencyViewController: UIViewController {
             }
         }
     }
+     */
+    
+    private func createPulse() async {
+        for _ in 0...4 {
+            let circularPath = UIBezierPath(arcCenter: .zero, radius: screenWidth / 2.0, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
+            
+            let pulseLayer = CAShapeLayer()
 
-    func animatePulse(index: Int) {
+            pulseLayer.path = circularPath.cgPath
+            pulseLayer.lineWidth = 8.0
+            pulseLayer.fillColor = UIColor.clear.cgColor
+            pulseLayer.lineCap = CAShapeLayerLineCap.round
+            pulseLayer.opacity = 0.7
+            
+            pulseLayer.position = CGPoint(x: screenWidth / 2.0, y: screenHeight / 2.0)
+            
+
+            if let filter = CIFilter(name: "CIGaussianBlur") {
+                filter.name = "myFilter"
+                pulseLayer.filters = [filter]
+                pulseLayer.setValue(1, forKeyPath: "backgroundFilters.myFilter.inputRadius")
+            }
+            
+            backgroundImage.layer.addSublayer(pulseLayer)
+            pulseLayers.append(pulseLayer)
+        }
+        Task {
+            await animatePulses()
+        }
+    }
+
+    func animatePulses() async {
+        await animatePulse(index: 0)
+        await Task.sleep(250_000_000)  // Sleeping for 0.2 seconds
+        
+        await animatePulse(index: 1)
+        await Task.sleep(250_000_000)  // Sleeping for 0.2 seconds
+        
+        await animatePulse(index: 2)
+        await Task.sleep(250_000_000)  // Sleeping for 0.2 seconds
+        
+        await animatePulse(index: 3)
+        await Task.sleep(250_000_000)  // Sleeping for 0.2 seconds
+        
+        await animatePulse(index: 4)
+        await Task.sleep(250_000_000)  // Sleeping for 0.2 seconds
+    }
+
+    func animatePulse(index: Int) async {
         pulseLayers[index].strokeColor = UIColor(white: 1.0, alpha: 0.5).cgColor
         
         let scaleAnimation = CABasicAnimation(keyPath: "transform.scale")
-        scaleAnimation.duration = 2.5
+        scaleAnimation.duration = 3.0
         scaleAnimation.fromValue = 0.0
         scaleAnimation.toValue = 2.0
         scaleAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
@@ -86,9 +133,9 @@ class EmergencyViewController: UIViewController {
         pulseLayers[index].add(scaleAnimation, forKey: "scale")
         
         let opacityAnimation = CABasicAnimation(keyPath: #keyPath(CALayer.opacity))
-        opacityAnimation.duration = 2.5
+        opacityAnimation.duration = 3.0
         opacityAnimation.fromValue = 0.9
-        opacityAnimation.toValue = 0.0
+        opacityAnimation.toValue = 0.1
         opacityAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
         opacityAnimation.repeatCount = .greatestFiniteMagnitude
         pulseLayers[index].add(opacityAnimation, forKey: "opacity")
