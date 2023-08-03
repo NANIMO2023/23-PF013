@@ -27,6 +27,10 @@
 		BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */; };
 		BF4D853C2A7250E50030C02D /* AudioEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D853B2A7250E50030C02D /* AudioEntity.swift */; };
 		BF4D853E2A728D4B0030C02D /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D853D2A728D4B0030C02D /* BulletView.swift */; };
+		BF5FFD6A2A7A2B46002B5F36 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FFD692A7A2B46002B5F36 /* RoundedButton.swift */; };
+		BF5FFD6C2A7A2ED2002B5F36 /* FoldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FFD6B2A7A2ED2002B5F36 /* FoldView.swift */; };
+		BFE4F3E12A7A13A50053012E /* EmergencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE4F3E02A7A13A50053012E /* EmergencyViewController.swift */; };
+		BFE4F3E52A7A1C3F0053012E /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE4F3E42A7A1C3F0053012E /* Preview.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +73,10 @@
 		BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEntityViewModel.swift; sourceTree = "<group>"; };
 		BF4D853B2A7250E50030C02D /* AudioEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEntity.swift; sourceTree = "<group>"; };
 		BF4D853D2A728D4B0030C02D /* BulletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
+		BF5FFD692A7A2B46002B5F36 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		BF5FFD6B2A7A2ED2002B5F36 /* FoldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldView.swift; sourceTree = "<group>"; };
+		BFE4F3E02A7A13A50053012E /* EmergencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewController.swift; sourceTree = "<group>"; };
+		BFE4F3E42A7A1C3F0053012E /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +161,7 @@
 		BF05C3572A5D654A0086C4B8 /* Global */ = {
 			isa = PBXGroup;
 			children = (
+				BFE4F3E42A7A1C3F0053012E /* Preview.swift */,
 				BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */,
 				BF05C3242A5D63490086C4B8 /* AppDelegate.swift */,
 				BF05C3322A5D634A0086C4B8 /* LaunchScreen.storyboard */,
@@ -167,6 +176,8 @@
 				BF4D85352A724FBD0030C02D /* AudioChart */,
 				BF05C3652A5E55220086C4B8 /* Main */,
 				BF4D853D2A728D4B0030C02D /* BulletView.swift */,
+				BF5FFD692A7A2B46002B5F36 /* RoundedButton.swift */,
+				BF5FFD6B2A7A2ED2002B5F36 /* FoldView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				BF05C3662A5E55350086C4B8 /* MainViewController.swift */,
+				BFE4F3E02A7A13A50053012E /* EmergencyViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -360,15 +372,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFE4F3E12A7A13A50053012E /* EmergencyViewController.swift in Sources */,
 				BF4D853E2A728D4B0030C02D /* BulletView.swift in Sources */,
 				BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */,
 				BF05C3622A5E51750086C4B8 /* Color+Extension.swift in Sources */,
 				BF4D853C2A7250E50030C02D /* AudioEntity.swift in Sources */,
 				BF05C32F2A5D63490086C4B8 /* Nanimo.xcdatamodeld in Sources */,
 				BF05C3602A5E515A0086C4B8 /* View+Extension.swift in Sources */,
+				BF5FFD6C2A7A2ED2002B5F36 /* FoldView.swift in Sources */,
+				BFE4F3E52A7A1C3F0053012E /* Preview.swift in Sources */,
 				BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */,
 				BF05C3642A5E520F0086C4B8 /* Literal.swift in Sources */,
 				BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */,
+				BF5FFD6A2A7A2B46002B5F36 /* RoundedButton.swift in Sources */,
 				BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */,
 				BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */,
 				BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */,
