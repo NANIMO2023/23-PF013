@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3F3624992A7D50730066E531 /* LaunchPadTappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624982A7D50730066E531 /* LaunchPadTappedViewController.swift */; };
+		3F36249B2A7D51030066E531 /* SpeechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249A2A7D51030066E531 /* SpeechViewModel.swift */; };
+		3F36249D2A7D512B0066E531 /* SentenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249C2A7D512B0066E531 /* SentenceModel.swift */; };
+		3F36249F2A7D51670066E531 /* SpeechButtonTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249E2A7D51670066E531 /* SpeechButtonTextFieldView.swift */; };
+		3F3624A12A7D51910066E531 /* SpeechButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A02A7D51910066E531 /* SpeechButtonView.swift */; };
+		3F3624A32A7D51AF0066E531 /* SpeechNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A22A7D51AF0066E531 /* SpeechNotificationView.swift */; };
+		3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A42A7D51C70066E531 /* SentenceTableView.swift */; };
+		3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A62A7D51EB0066E531 /* SentenceTableViewCell.swift */; };
+		3F3624A92A7D520E0066E531 /* ChattingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A82A7D520E0066E531 /* ChattingTableView.swift */; };
+		3F3624AB2A7D522B0066E531 /* ChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */; };
+		3F3624AE2A7D52B90066E531 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3624AD2A7D52B90066E531 /* RxDataSources */; };
 		BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3242A5D63490086C4B8 /* AppDelegate.swift */; };
 		BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */; };
 		BF05C32F2A5D63490086C4B8 /* Nanimo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF05C32D2A5D63490086C4B8 /* Nanimo.xcdatamodeld */; };
@@ -51,6 +62,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3F3624982A7D50730066E531 /* LaunchPadTappedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPadTappedViewController.swift; sourceTree = "<group>"; };
+		3F36249A2A7D51030066E531 /* SpeechViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewModel.swift; sourceTree = "<group>"; };
+		3F36249C2A7D512B0066E531 /* SentenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceModel.swift; sourceTree = "<group>"; };
+		3F36249E2A7D51670066E531 /* SpeechButtonTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechButtonTextFieldView.swift; sourceTree = "<group>"; };
+		3F3624A02A7D51910066E531 /* SpeechButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechButtonView.swift; sourceTree = "<group>"; };
+		3F3624A22A7D51AF0066E531 /* SpeechNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechNotificationView.swift; sourceTree = "<group>"; };
+		3F3624A42A7D51C70066E531 /* SentenceTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceTableView.swift; sourceTree = "<group>"; };
+		3F3624A62A7D51EB0066E531 /* SentenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceTableViewCell.swift; sourceTree = "<group>"; };
+		3F3624A82A7D520E0066E531 /* ChattingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableView.swift; sourceTree = "<group>"; };
+		3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewCell.swift; sourceTree = "<group>"; };
 		BF05C3212A5D63490086C4B8 /* Nanimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nanimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF05C3242A5D63490086C4B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3F3624AE2A7D52B90066E531 /* RxDataSources in Frameworks */,
 				BF05C36C2A5E6C180086C4B8 /* RxSwift in Frameworks */,
 				BF05C36A2A5E6C180086C4B8 /* RxCocoa in Frameworks */,
 			);
@@ -106,6 +128,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3F3624962A7D4FD60066E531 /* LaunchPad */ = {
+			isa = PBXGroup;
+			children = (
+				3F3624982A7D50730066E531 /* LaunchPadTappedViewController.swift */,
+				3F36249E2A7D51670066E531 /* SpeechButtonTextFieldView.swift */,
+				3F3624A02A7D51910066E531 /* SpeechButtonView.swift */,
+				3F3624A22A7D51AF0066E531 /* SpeechNotificationView.swift */,
+				3F3624A42A7D51C70066E531 /* SentenceTableView.swift */,
+				3F3624A62A7D51EB0066E531 /* SentenceTableViewCell.swift */,
+				3F3624A82A7D520E0066E531 /* ChattingTableView.swift */,
+				3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */,
+			);
+			path = LaunchPad;
+			sourceTree = "<group>";
+		};
 		BF05C3182A5D63490086C4B8 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +210,7 @@
 		BF05C3582A5D65510086C4B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				3F3624962A7D4FD60066E531 /* LaunchPad */,
 				BF4D85352A724FBD0030C02D /* AudioChart */,
 				BF05C3652A5E55220086C4B8 /* Main */,
 				BF4D853D2A728D4B0030C02D /* BulletView.swift */,
@@ -187,6 +225,7 @@
 			children = (
 				BF05C35C2A5D65FE0086C4B8 /* .gitkeep */,
 				BF4D853B2A7250E50030C02D /* AudioEntity.swift */,
+				3F36249C2A7D512B0066E531 /* SentenceModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -230,6 +269,7 @@
 			isa = PBXGroup;
 			children = (
 				BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */,
+				3F36249A2A7D51030066E531 /* SpeechViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -253,6 +293,7 @@
 			packageProductDependencies = (
 				BF05C3692A5E6C180086C4B8 /* RxCocoa */,
 				BF05C36B2A5E6C180086C4B8 /* RxSwift */,
+				3F3624AD2A7D52B90066E531 /* RxDataSources */,
 			);
 			productName = Nanimo;
 			productReference = BF05C3212A5D63490086C4B8 /* Nanimo.app */;
@@ -328,6 +369,7 @@
 			mainGroup = BF05C3182A5D63490086C4B8;
 			packageReferences = (
 				BF05C3682A5E6C180086C4B8 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				3F3624AC2A7D52B90066E531 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = BF05C3222A5D63490086C4B8 /* Products */;
 			projectDirPath = "";
@@ -373,20 +415,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE4F3E12A7A13A50053012E /* EmergencyViewController.swift in Sources */,
+				3F3624A32A7D51AF0066E531 /* SpeechNotificationView.swift in Sources */,
 				BF4D853E2A728D4B0030C02D /* BulletView.swift in Sources */,
+				3F3624A92A7D520E0066E531 /* ChattingTableView.swift in Sources */,
+				3F3624A12A7D51910066E531 /* SpeechButtonView.swift in Sources */,
+				3F36249F2A7D51670066E531 /* SpeechButtonTextFieldView.swift in Sources */,
 				BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */,
 				BF05C3622A5E51750086C4B8 /* Color+Extension.swift in Sources */,
+				3F36249D2A7D512B0066E531 /* SentenceModel.swift in Sources */,
 				BF4D853C2A7250E50030C02D /* AudioEntity.swift in Sources */,
 				BF05C32F2A5D63490086C4B8 /* Nanimo.xcdatamodeld in Sources */,
 				BF05C3602A5E515A0086C4B8 /* View+Extension.swift in Sources */,
 				BF5FFD6C2A7A2ED2002B5F36 /* FoldView.swift in Sources */,
 				BFE4F3E52A7A1C3F0053012E /* Preview.swift in Sources */,
 				BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */,
+				3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */,
+				3F36249B2A7D51030066E531 /* SpeechViewModel.swift in Sources */,
 				BF05C3642A5E520F0086C4B8 /* Literal.swift in Sources */,
 				BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */,
+				3F3624AB2A7D522B0066E531 /* ChattingTableViewCell.swift in Sources */,
+				3F3624992A7D50730066E531 /* LaunchPadTappedViewController.swift in Sources */,
 				BF5FFD6A2A7A2B46002B5F36 /* RoundedButton.swift in Sources */,
 				BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */,
 				BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */,
+				3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */,
 				BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -723,6 +775,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		3F3624AC2A7D52B90066E531 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		BF05C3682A5E6C180086C4B8 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -734,6 +794,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3F3624AD2A7D52B90066E531 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3F3624AC2A7D52B90066E531 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
 		BF05C3692A5E6C180086C4B8 /* RxCocoa */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = BF05C3682A5E6C180086C4B8 /* XCRemoteSwiftPackageReference "RxSwift" */;
