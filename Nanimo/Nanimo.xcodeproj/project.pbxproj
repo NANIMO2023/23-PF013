@@ -8,15 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3F3624992A7D50730066E531 /* LaunchPadTappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624982A7D50730066E531 /* LaunchPadTappedViewController.swift */; };
-		3F36249B2A7D51030066E531 /* SpeechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249A2A7D51030066E531 /* SpeechViewModel.swift */; };
-		3F36249D2A7D512B0066E531 /* SentenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249C2A7D512B0066E531 /* SentenceModel.swift */; };
 		3F36249F2A7D51670066E531 /* SpeechButtonTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249E2A7D51670066E531 /* SpeechButtonTextFieldView.swift */; };
-		3F3624A12A7D51910066E531 /* SpeechButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A02A7D51910066E531 /* SpeechButtonView.swift */; };
 		3F3624A32A7D51AF0066E531 /* SpeechNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A22A7D51AF0066E531 /* SpeechNotificationView.swift */; };
 		3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A42A7D51C70066E531 /* SentenceTableView.swift */; };
 		3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A62A7D51EB0066E531 /* SentenceTableViewCell.swift */; };
-		3F3624A92A7D520E0066E531 /* ChattingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A82A7D520E0066E531 /* ChattingTableView.swift */; };
-		3F3624AB2A7D522B0066E531 /* ChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */; };
 		3F3624AE2A7D52B90066E531 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3624AD2A7D52B90066E531 /* RxDataSources */; };
 		BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3242A5D63490086C4B8 /* AppDelegate.swift */; };
 		BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */; };
@@ -98,6 +93,9 @@
 		BF5FFD6B2A7A2ED2002B5F36 /* FoldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldView.swift; sourceTree = "<group>"; };
 		BFE4F3E02A7A13A50053012E /* EmergencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewController.swift; sourceTree = "<group>"; };
 		BFE4F3E42A7A1C3F0053012E /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
+		BFEFAAA12A80CEB30038511C /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		BFEFAAA52A80CEC70038511C /* ResultsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsObserver.swift; sourceTree = "<group>"; };
+		BFEFAAAA2A8210480038511C /* IdentifierTranslationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierTranslationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +164,7 @@
 		BF05C3232A5D63490086C4B8 /* Nanimo */ = {
 			isa = PBXGroup;
 			children = (
+				BFEFAAA02A80CEA60038511C /* Audio */,
 				BF4D85382A7250BA0030C02D /* ViewModel */,
 				BF05C35E2A5E51470086C4B8 /* Extension */,
 				BF05C32D2A5D63490086C4B8 /* Nanimo.xcdatamodeld */,
@@ -272,6 +271,24 @@
 				3F36249A2A7D51030066E531 /* SpeechViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BFEFAAA02A80CEA60038511C /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				BFEFAAA92A8210280038511C /* Helper */,
+				BFEFAAA12A80CEB30038511C /* SoundManager.swift */,
+				BFEFAAA52A80CEC70038511C /* ResultsObserver.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		BFEFAAA92A8210280038511C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BFEFAAAA2A8210480038511C /* IdentifierTranslationHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +449,7 @@
 				3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */,
 				3F36249B2A7D51030066E531 /* SpeechViewModel.swift in Sources */,
 				BF05C3642A5E520F0086C4B8 /* Literal.swift in Sources */,
+				BFEFAAA62A80CEC70038511C /* ResultsObserver.swift in Sources */,
 				BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */,
 				3F3624AB2A7D522B0066E531 /* ChattingTableViewCell.swift in Sources */,
 				3F3624992A7D50730066E531 /* LaunchPadTappedViewController.swift in Sources */,
@@ -440,6 +458,7 @@
 				BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */,
 				3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */,
 				BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */,
+				BFEFAAA22A80CEB30038511C /* SoundManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
