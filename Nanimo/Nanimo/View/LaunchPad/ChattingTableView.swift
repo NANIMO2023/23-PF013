@@ -11,7 +11,7 @@ class ChattingTableView: UITableView {
     
     // MARK: - Properties
     
-    var reverse: Bool = false
+    var isReversed: Bool = false
 
     
     // MARK: - Life Cycles
@@ -27,10 +27,10 @@ class ChattingTableView: UITableView {
         self.dataSource = self
     }
     
-    convenience init(reverse: Bool) {
+    convenience init(isReversed: Bool) {
         self.init(frame: .zero, style: .plain)
-        self.reverse = reverse
-        self.transform = reverse ? CGAffineTransform(scaleX: 1, y: -1) : .identity
+        self.isReversed = isReversed
+        self.transform = isReversed ? CGAffineTransform(scaleX: 1, y: -1) : .identity
     }
     
     required init?(coder: NSCoder) {
@@ -50,7 +50,7 @@ extension ChattingTableView: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ChattingCellId", for: indexPath) as! ChattingTableViewCell
         
-        cell.reverse = reverse
+        cell.reverse = isReversed
         
         cell.chattingLabel.text = "주문하시겠어요"
         

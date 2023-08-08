@@ -17,8 +17,8 @@ class LaunchPadTappedViewController: UIViewController {
     private lazy var speechNotificationView = SpeechNotificationView(viewModel: viewModel)
     private lazy var sentenceTableView = SentenceTableView(viewModel: viewModel)
     
-    private lazy var chattingTableView = ChattingTableView(reverse: false)
-    private lazy var reverseChattingTableView = ChattingTableView(reverse: true)
+    private lazy var chattingTableView = ChattingTableView(isReversed: false)
+    private lazy var reverseChattingTableView = ChattingTableView(isReversed: true)
     
     private let disposeBag = DisposeBag()
     
@@ -46,9 +46,7 @@ class LaunchPadTappedViewController: UIViewController {
         
         speechNotificationView.bind()
         
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-
-        view.addGestureRecognizer(tap)
+        hideKeyboardWhenTappedAround()
         
     }
     
@@ -70,6 +68,13 @@ class LaunchPadTappedViewController: UIViewController {
         speechButtonTextFieldView.setHeight(height: 54)
         
     }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        
+        view.addGestureRecognizer(tap)
+    }
+
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
