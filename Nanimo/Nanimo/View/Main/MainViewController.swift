@@ -6,14 +6,26 @@
 //
 
 import SwiftUI
+import SoundAnalysis
 
-class MainViewController: UIViewController {
+import RxSwift
+import RxCocoa
+
+protocol SoundClassifierDelegate {
+    func displayPredictionResult(identifier: String, confidence: Double)
+}
+
+class MainViewController: UIViewController, SoundClassifierDelegate {
     
     // MARK: - Properties
-    
+    var resultsObserver = ResultsObserver.shared
+    var soundManager = SoundManager()
+    var identifierTranslationHelper = IdentifierTranslationHelper()
+    private var disposeBag = DisposeBag()
     private var minuteLabel = UILabel()
-    private var soundNotificationLabel = UILabel()
-    private var todayAudioLabel = UILabel()
+    var soundNotificationLabel = UILabel()
+    var soundLabel: String = ""
+    var todayAudioLabel = UILabel()
     
     private var backgroundGradientBlockImage: UIImageView = {
         let imageView = UIImageView()
@@ -58,15 +70,31 @@ class MainViewController: UIViewController {
     
     // MARK: - Life Cycles
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        soundManager.startAudioEngine()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        
+        resultsObserver.classifierDelegate = self
         makeHostingViewToUIView()
         [minuteLabel, soundNotificationLabel].forEach { backgroundGradientBlockImage.addSubview($0) }
         [backgroundGradientBlockImage, todayAudioLabel, detailButton, audioStackView].forEach { view.addSubview($0) }
         setLabel()
+        
         configureLayout()
+        
+        resultsObserver.observePredictions()
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] prediction in
+                if let myIdentifier = self?.resultsObserver.identifierHelper.identifier[prediction.identifier] {
+                    self?.soundNotificationLabel.text = "\(myIdentifier) 소리가 들리고 있어요"
+                    self?.soundNotificationLabel.adjustsFontSizeToFitWidth = true
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - methods for layouts
@@ -74,8 +102,11 @@ class MainViewController: UIViewController {
     private func setLabel() {
         backgroundGradientBlockImage.anchor(top: view.topAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor)
         
-        minuteLabel.setLabel(labelText: " 40분 전부터 ", backgroundColor: .black, weight: .medium, textSize: 16, labelColor: .white)
-        soundNotificationLabel.setLabel(labelText: "일상 소음이 들리고 있어요", backgroundColor: .clear, weight: .bold, textSize: 24, labelColor: .black)
+        minuteLabel.setLabel(labelText: " 지금은 ", backgroundColor: .black, weight: .medium, textSize: 16, labelColor: .white)
+        
+        soundNotificationLabel.setLabel(labelText: "아무 소리도 들리지 않아요", backgroundColor: .clear, weight: .bold, textSize: 24, labelColor: .black)
+        
+        
         todayAudioLabel.setLabel(labelText: "오늘 발생한 소리", backgroundColor: .clear, weight: .bold, textSize: 22, labelColor: .black)
     }
     
@@ -101,5 +132,13 @@ class MainViewController: UIViewController {
         detailButton.anchor(top: dailyAudioChartHostingView.view.bottomAnchor, trailing: view.trailingAnchor, paddingTop: 25, paddingTrailing: 19)
         
         audioStackView.anchor(top: todayAudioLabel.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, paddingTop: 5, paddingLeading: 18)
+    }
+}
+
+extension MainViewController {
+    func displayPredictionResult(identifier: String, confidence: Double) {
+        let percentConfidence = String(format: "%.2f", confidence)
+        let myIdentifier = identifierTranslationHelper.identifier[identifier]
+        print("identifier: \(String(describing: myIdentifier)), percentConfidence: \(percentConfidence)")
     }
 }
