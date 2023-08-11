@@ -470,7 +470,6 @@
 				BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */,
 				3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */,
 				BF05C3642A5E520F0086C4B8 /* Literal.swift in Sources */,
-				BFEFAAA62A80CEC70038511C /* ResultsObserver.swift in Sources */,
 				BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */,
 				3F3624992A7D50730066E531 /* LaunchPadTappedViewController.swift in Sources */,
 				BF3679542A826AA50002598A /* SoundManager.swift in Sources */,
