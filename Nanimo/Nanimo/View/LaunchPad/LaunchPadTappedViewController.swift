@@ -13,12 +13,13 @@ class LaunchPadTappedViewController: UIViewController {
     // MARK: - Properties
     
     private var viewModel = SpeechViewModel(initialMode: .speech)
-    private lazy var speechButtonTextFieldView = SpeechButtonTextFieldView(viewModel: viewModel)
+    private var chattingViewModel = ChattingViewModel()
+    private lazy var speechButtonTextFieldView = SpeechButtonTextFieldView(viewModel: viewModel, chattingViewModel: chattingViewModel)
     private lazy var speechNotificationView = SpeechNotificationView(viewModel: viewModel)
     private lazy var sentenceTableView = SentenceTableView(viewModel: viewModel)
     
-    private lazy var chattingTableView = ChattingTableView(isReversed: false)
-    private lazy var reverseChattingTableView = ChattingTableView(isReversed: true)
+    private lazy var chattingTableView = ChattingTableView(isReversed: false, chattingViewModel: chattingViewModel)
+    private lazy var reverseChattingTableView = ChattingTableView(isReversed: true, chattingViewModel: chattingViewModel)
     
     private let disposeBag = DisposeBag()
     
@@ -45,9 +46,6 @@ class LaunchPadTappedViewController: UIViewController {
         chattingTableView.backgroundColor = .blue
         
         speechNotificationView.bind()
-        
-        hideKeyboardWhenTappedAround()
-        
     }
     
     // MARK: - methods for layouts
@@ -69,9 +67,9 @@ class LaunchPadTappedViewController: UIViewController {
         
     }
     
+    /// 키보드가 올라와 있을 때 다른 곳을 터치 시 키보드가 사라지는 역할을 하는 메서드
     func hideKeyboardWhenTappedAround() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-        
         view.addGestureRecognizer(tap)
     }
 
@@ -82,77 +80,65 @@ class LaunchPadTappedViewController: UIViewController {
     
     /// SpeechButtonTextFieldView와 SentenceTableView에 동일한 뷰모델을 설정
     private func bindViewModel() {
-        
-        print("실행")
         speechButtonTextFieldView.viewModel = viewModel
         sentenceTableView.viewModel = viewModel
-//        showSentenceTableView()
-//        viewModel.shouldShowTableView
-//            .subscribe(onNext: { [weak self] shouldShow in
-//                print("TableView Hidden: \(!shouldShow)")
-//                self?.sentenceTableView.isHidden = !shouldShow
-//            })
-//            .disposed(by: disposeBag)
+        observeTextFieldAndKeyboard()
     }
     
+    /// 키보드가 올라올때 동작하는 함수
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= keyboardSize.height
                 
-                viewModel.updateKeyboardVisibility(isVisible: true)
+                hideSubView(notification: true, sentence: false, chatting: true)
                 
-                speechNotificationView.isHidden = true
-                
-//                viewModel.shouldShowTableView.onNext(false)
-                showSentenceTableView()
-                
-                speechButtonTextFieldView.anchor(height: 44)
-                
-                sentenceTableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: speechButtonTextFieldView.topAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: keyboardSize.height, paddingLeading: 12, paddingTrailing: 12)
+                sentenceTableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: speechButtonTextFieldView.topAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: keyboardSize.height)
 
                 print(speechButtonTextFieldView.frame.height)
 
-                speechButtonTextFieldView.anchor(top: sentenceTableView.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingLeading: 5, paddingTrailing: 5)
+                speechButtonTextFieldView.anchor(top: sentenceTableView.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor)
                 
-//                sentenceTableView.isHidden = false
+                viewModel.isKeyboardVisible.accept(true)
                 view.layoutIfNeeded()
             }
         }
     }
-
+    
+    /// 키보드가 내려갈때 동작하는 함수
     @objc func keyboardWillHide(notification: NSNotification) {
         if self.view.frame.origin.y != 0 {
             self.view.frame.origin.y = 0
         }
         
-        speechNotificationView.isHidden = false
-//        sentenceTableView.isHidden = true
-//        viewModel.shouldShowTableView.onNext(true)
-//        showSentenceTableView()
-        viewModel.updateKeyboardVisibility(isVisible: false)
-        
-        
-//        sentenceTableViewBottomConstraint = sentenceTableView.bottomAnchor.constraint(equalTo: speechButtonTextFieldView.topAnchor)
-//        sentenceTableViewBottomConstraint?.isActive = true
+        hideSubView(notification: false, sentence: true, chatting: false)
+        viewModel.isKeyboardVisible.accept(false)
     }
 
-    func showSentenceTableView() {
-        viewModel.shouldShowTableView
-            .subscribe(onNext: { [weak self] shouldShow in
-                print("Keyboard TableView Hidden: \(!shouldShow)")
-                self?.sentenceTableView.isHidden = shouldShow
+    /// View 를 감추거나 보여주는 역할을 하는 메서드
+    func hideSubView(notification: Bool, sentence: Bool, chatting: Bool) {
+        speechNotificationView.isHidden = notification
+        sentenceTableView.isHidden = sentence
+        chattingTableView.isHidden = chatting
+        reverseChattingTableView.isHidden = chatting
+    }
+    
+    /// 앱의 여러 상황에 맞게 분기처리를 하기 위한 함수
+    func observeTextFieldAndKeyboard() {
+        Observable.combineLatest(viewModel.isEmptyTextField, viewModel.isKeyboardVisible)
+            .subscribe(onNext: { [weak self] (isEmpty, isKeyboardVisible) in
+                
+                switch (isEmpty, isKeyboardVisible) {
+                case (true, true): /// 키보드가 올라가 있고 Text 가 비어있을 때
+                    self?.sentenceTableView.isHidden = !isEmpty
+                case (false, true): ///키보드가 올라가 있고 Text 가 있을 때
+                    self?.sentenceTableView.isHidden = !isEmpty
+                case (false, false): /// 키보드가 내려가 있고 Text 가 있을 때
+                    self?.sentenceTableView.isHidden = !isEmpty
+                case (true, false): /// 키보드가 내려가 있고 Text 가 비어있을 때
+                    self?.sentenceTableView.isHidden = isEmpty
+                }
             })
             .disposed(by: disposeBag)
     }
-    
-    func isEmptyTextField() {
-        viewModel.isEmptyTextField
-            .subscribe(onNext: { [weak self] isEmpty in
-                print("Empty TableView Hidden: \(!isEmpty)")
-                self?.sentenceTableView.isHidden = isEmpty
-            })
-            .disposed(by: disposeBag)
-    }
-    
 }
