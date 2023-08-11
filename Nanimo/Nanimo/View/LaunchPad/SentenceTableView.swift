@@ -12,6 +12,8 @@ import RxCocoa
 
 class SentenceTableView: UIView {
 
+    // MARK: - Properties
+    
     var viewModel: SpeechViewModel? {
         didSet {
             bindViewModel()
@@ -29,18 +31,21 @@ class SentenceTableView: UIView {
         return tableView
     }()
     
+    // MARK: - Life Cycles
+    
     init(viewModel: SpeechViewModel) {
         super.init(frame: .zero)
         self.viewModel = viewModel
         configureTableView()
         sentenceTableView.delegate = self
-//        sentenceTableView.dataSource = nil // dataSource는 bindViewModel 메서드에서 설정하므로 nil로 초기화
     }
     
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+    // MARK: - layouts
 
     private func configureTableView() {
         self.addSubview(sentenceTableView)
@@ -49,20 +54,19 @@ class SentenceTableView: UIView {
     }
 }
 
-// MARK: UITableView Setting
+// MARK: - methods
+
 extension SentenceTableView {
     
+    /// 선택한 셀의 정보를 가져와 출력
     func handleCellSelection(at indexPath: IndexPath, dataSource: RxTableViewSectionedReloadDataSource<SectionModel<String, SentenceModel>>) {
-        // 선택한 셀의 정보를 가져와서 출력합니다.
         let item = dataSource[indexPath]
         let selectedSentence = item.sentence
         print("Selected cell index: \(indexPath.row)")
         print("Selected cell content: \(item.sentence)")
-        
         viewModel?.updateSelectedSentence(selectedSentence)
         
-        
-//        sentenceTableView.isHidden = true
+        viewModel?.isEmptyTextField.onNext(false)
     }
 
     func bindViewModel() {
@@ -71,22 +75,23 @@ extension SentenceTableView {
         }
 
         let dataSource = self.dataSource()
-
-       Observable.combineLatest(viewModel.recentSentences, viewModel.favoriteSentences) { recent, favorite in
-           [SectionModel(model: "최근 사용한 문장", items: recent),
-            SectionModel(model: "즐겨찾기 문장", items: favorite)]
-       }
-       .bind(to: sentenceTableView.rx.items(dataSource: dataSource))
-       .disposed(by: disposeBag)
         
-        sentenceTableView.rx.itemSelected
-            .subscribe(onNext: { [weak self] indexPath in
+        Observable.combineLatest(viewModel.recentSentences, viewModel.favoriteSentences) { recent, favorite in
+            [SectionModel(model: "최근 사용한 문장", items: recent),
+             SectionModel(model: "즐겨찾기 문장", items: favorite)]
+        }
+        .bind(to: sentenceTableView.rx.items(dataSource: dataSource))
+        .disposed(by: disposeBag)
+         
+         sentenceTableView.rx.itemSelected
+             .subscribe(onNext: { [weak self] indexPath in
                 guard let self = self else { return }
                 self.handleCellSelection(at: indexPath, dataSource: dataSource)
             })
             .disposed(by: disposeBag)
     }
-
+    
+    /// Cell 디자인
     func dataSource() -> RxTableViewSectionedReloadDataSource<SectionModel<String, SentenceModel>> {
         return RxTableViewSectionedReloadDataSource<SectionModel<String, SentenceModel>>(
             configureCell: { dataSource, tableView, indexPath, item in

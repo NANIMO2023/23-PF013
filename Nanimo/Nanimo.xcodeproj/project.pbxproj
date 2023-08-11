@@ -13,6 +13,7 @@
 		3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A42A7D51C70066E531 /* SentenceTableView.swift */; };
 		3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A62A7D51EB0066E531 /* SentenceTableViewCell.swift */; };
 		3F3624AE2A7D52B90066E531 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3624AD2A7D52B90066E531 /* RxDataSources */; };
+		3F7DBD0A2A86226C00410404 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DBD092A86226C00410404 /* ChattingViewModel.swift */; };
 		BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3242A5D63490086C4B8 /* AppDelegate.swift */; };
 		BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */; };
 		BF05C32F2A5D63490086C4B8 /* Nanimo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BF05C32D2A5D63490086C4B8 /* Nanimo.xcdatamodeld */; };
@@ -77,6 +78,7 @@
 		3F3624A62A7D51EB0066E531 /* SentenceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceTableViewCell.swift; sourceTree = "<group>"; };
 		3F3624A82A7D520E0066E531 /* ChattingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableView.swift; sourceTree = "<group>"; };
 		3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewCell.swift; sourceTree = "<group>"; };
+		3F7DBD092A86226C00410404 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
 		BF05C3212A5D63490086C4B8 /* Nanimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nanimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF05C3242A5D63490086C4B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 			children = (
 				BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */,
 				3F36249A2A7D51030066E531 /* SpeechViewModel.swift */,
+				3F7DBD092A86226C00410404 /* ChattingViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -451,6 +454,9 @@
 				BF3679592A826AE20002598A /* ChattingTableViewCell.swift in Sources */,
 				3F3624A32A7D51AF0066E531 /* SpeechNotificationView.swift in Sources */,
 				BF4D853E2A728D4B0030C02D /* BulletView.swift in Sources */,
+				3F7DBD0A2A86226C00410404 /* ChattingViewModel.swift in Sources */,
+				3F3624A92A7D520E0066E531 /* ChattingTableView.swift in Sources */,
+				3F3624A12A7D51910066E531 /* SpeechButtonView.swift in Sources */,
 				3F36249F2A7D51670066E531 /* SpeechButtonTextFieldView.swift in Sources */,
 				BF3679552A826AA90002598A /* SpeechViewModel.swift in Sources */,
 				BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */,
