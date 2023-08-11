@@ -28,6 +28,14 @@
 		BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3662A5E55350086C4B8 /* MainViewController.swift */; };
 		BF05C36A2A5E6C180086C4B8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BF05C3692A5E6C180086C4B8 /* RxCocoa */; };
 		BF05C36C2A5E6C180086C4B8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF05C36B2A5E6C180086C4B8 /* RxSwift */; };
+		BF3679522A826A970002598A /* ResultsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEFAAA52A80CEC70038511C /* ResultsObserver.swift */; };
+		BF3679532A826AA10002598A /* IdentifierTranslationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEFAAAA2A8210480038511C /* IdentifierTranslationHelper.swift */; };
+		BF3679542A826AA50002598A /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEFAAA12A80CEB30038511C /* SoundManager.swift */; };
+		BF3679552A826AA90002598A /* SpeechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249A2A7D51030066E531 /* SpeechViewModel.swift */; };
+		BF3679562A826AC10002598A /* SentenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249C2A7D512B0066E531 /* SentenceModel.swift */; };
+		BF3679572A826AD30002598A /* SpeechButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A02A7D51910066E531 /* SpeechButtonView.swift */; };
+		BF3679582A826ADE0002598A /* ChattingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A82A7D520E0066E531 /* ChattingTableView.swift */; };
+		BF3679592A826AE20002598A /* ChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */; };
 		BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85332A72282F0030C02D /* Label+Extension.swift */; };
 		BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85362A724FDB0030C02D /* AudioPointMarkView.swift */; };
 		BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */; };
@@ -432,33 +440,34 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE4F3E12A7A13A50053012E /* EmergencyViewController.swift in Sources */,
+				BF3679592A826AE20002598A /* ChattingTableViewCell.swift in Sources */,
 				3F3624A32A7D51AF0066E531 /* SpeechNotificationView.swift in Sources */,
 				BF4D853E2A728D4B0030C02D /* BulletView.swift in Sources */,
-				3F3624A92A7D520E0066E531 /* ChattingTableView.swift in Sources */,
-				3F3624A12A7D51910066E531 /* SpeechButtonView.swift in Sources */,
 				3F36249F2A7D51670066E531 /* SpeechButtonTextFieldView.swift in Sources */,
+				BF3679552A826AA90002598A /* SpeechViewModel.swift in Sources */,
 				BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */,
 				BF05C3622A5E51750086C4B8 /* Color+Extension.swift in Sources */,
-				3F36249D2A7D512B0066E531 /* SentenceModel.swift in Sources */,
 				BF4D853C2A7250E50030C02D /* AudioEntity.swift in Sources */,
 				BF05C32F2A5D63490086C4B8 /* Nanimo.xcdatamodeld in Sources */,
+				BF3679522A826A970002598A /* ResultsObserver.swift in Sources */,
 				BF05C3602A5E515A0086C4B8 /* View+Extension.swift in Sources */,
 				BF5FFD6C2A7A2ED2002B5F36 /* FoldView.swift in Sources */,
 				BFE4F3E52A7A1C3F0053012E /* Preview.swift in Sources */,
 				BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */,
 				3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */,
-				3F36249B2A7D51030066E531 /* SpeechViewModel.swift in Sources */,
 				BF05C3642A5E520F0086C4B8 /* Literal.swift in Sources */,
-				BFEFAAA62A80CEC70038511C /* ResultsObserver.swift in Sources */,
 				BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */,
-				3F3624AB2A7D522B0066E531 /* ChattingTableViewCell.swift in Sources */,
 				3F3624992A7D50730066E531 /* LaunchPadTappedViewController.swift in Sources */,
+				BF3679542A826AA50002598A /* SoundManager.swift in Sources */,
+				BF3679582A826ADE0002598A /* ChattingTableView.swift in Sources */,
 				BF5FFD6A2A7A2B46002B5F36 /* RoundedButton.swift in Sources */,
 				BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */,
+				BF3679532A826AA10002598A /* IdentifierTranslationHelper.swift in Sources */,
 				BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */,
 				3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */,
+				BF3679562A826AC10002598A /* SentenceModel.swift in Sources */,
 				BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */,
-				BFEFAAA22A80CEB30038511C /* SoundManager.swift in Sources */,
+				BF3679572A826AD30002598A /* SpeechButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
