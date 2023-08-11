@@ -31,9 +31,6 @@ class ChattingTableView: UITableView {
         self.separatorStyle = .none
         
         self.register(ChattingTableViewCell.self, forCellReuseIdentifier: "ChattingCellId")
-        
-//        self.delegate = self
-//        self.dataSource = self
     }
     
     convenience init(isReversed: Bool, chattingViewModel: ChattingViewModel) {
@@ -52,23 +49,6 @@ class ChattingTableView: UITableView {
     
     
 }
-
-//extension ChattingTableView: UITableViewDelegate, UITableViewDataSource {
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 20
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "ChattingCellId", for: indexPath) as! ChattingTableViewCell
-//
-//        cell.reverse = isReversed
-//
-//        cell.chattingLabel.text = "주문하시겠어요"
-//
-//
-//        return cell
-//    }
-//}
 
 extension ChattingTableView {
     private func bindViewModel() {

@@ -18,7 +18,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         window?.makeKeyAndVisible()
-        window?.rootViewController = LaunchPadTappedViewController()//UINavigationController(rootViewController: rootViewController)
+        window?.rootViewController = UINavigationController(rootViewController: rootViewController)
         
     }
 
