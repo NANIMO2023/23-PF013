@@ -90,7 +90,9 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] prediction in
                 if let myIdentifier = self?.resultsObserver.identifierHelper.identifier[prediction.identifier] {
+                    self?.soundNotificationLabel.fadeOut()
                     self?.soundNotificationLabel.text = "\(myIdentifier) 소리가 들리고 있어요"
+                    self?.soundNotificationLabel.fadeIn()
                     self?.soundNotificationLabel.adjustsFontSizeToFitWidth = true
                 }
             })
