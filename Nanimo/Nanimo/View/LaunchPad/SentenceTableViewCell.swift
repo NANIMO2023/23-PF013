@@ -38,7 +38,6 @@ class SentenceTableViewCell: UITableViewCell {
         layoutSubviews()
         configureTableCell()
         
-        bookmarkButton.isUserInteractionEnabled = true
         bookmarkButton.addTarget(self, action: #selector(bookmarkButtonClicked(_:)), for: .touchUpInside)
     }
     
@@ -52,7 +51,7 @@ class SentenceTableViewCell: UITableViewCell {
         sentenceBackgroundView.addSubview(bookmarkButton)
         sentenceBackgroundView.addSubview(sentenceLabel)
         
-        sentenceBackgroundView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, paddingTop: 4, paddingBottom: 4)
+        sentenceBackgroundView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, paddingTop: 4, paddingLeading: 12, paddingBottom: 4, paddingTrailing: 12)
         
         bookmarkButton.anchor(top: sentenceBackgroundView.topAnchor, leading: sentenceBackgroundView.leadingAnchor, bottom: sentenceBackgroundView.bottomAnchor, paddingLeading: 10, width: 21, height: 24)
         

@@ -31,17 +31,12 @@ class SpeechViewModel {
     
     /// 선택한 문장을 업데이트하는 메서드를 수정
     func updateSelectedSentence(_ sentence: String?) {
-        print("문장 업데이트")
         selectedSentenceSubject.onNext(sentence)
     }
     
-    /// TableView 를 보여주거나 숨기는 BehaviorSubject
+    /// SentencesTableView 를 보여주거나 숨기는 BehaviorSubject
     let isEmptyTextField = BehaviorSubject<Bool>(value: false)
-    
-    
-    
-    let shouldShowTableView = BehaviorSubject<Bool>(value: false)
-    
+
     /// 키보드의 상태를 나타내는 BehaviorSubject
     let isKeyboardVisible = BehaviorRelay<Bool>(value: false)
     
@@ -81,10 +76,5 @@ class SpeechViewModel {
     
     func updateSentences(newSentences: [SentenceModel]) {
         sentences.onNext(newSentences)
-    }
-    
-    /// 키보드의 상태를 업데이트하는 메서드
-    func updateKeyboardVisibility(isVisible: Bool) {
-        isKeyboardVisible.accept(isVisible)
     }
 }

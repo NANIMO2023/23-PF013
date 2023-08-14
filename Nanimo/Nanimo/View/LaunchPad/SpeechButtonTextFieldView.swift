@@ -18,6 +18,12 @@ class SpeechButtonTextFieldView: UIView{
         }
     }
     
+    var chattingViewModel: ChattingViewModel? {
+        didSet {
+            bindChattingViewModel()
+        }
+    }
+    
     var speechButton: SpeechButtonView
 
     private let disposeBag = DisposeBag()
@@ -39,15 +45,17 @@ class SpeechButtonTextFieldView: UIView{
     
     // MARK: - Life Cycles
     
-    init(viewModel: SpeechViewModel) {
+    init(viewModel: SpeechViewModel, chattingViewModel: ChattingViewModel) {
         self.viewModel = viewModel
         self.speechButton = SpeechButtonView(viewModel: viewModel)
+        self.chattingViewModel = chattingViewModel
         
         super.init(frame: .zero)
         
         configureTextField()
         bindViewModel()
         bindTextField()
+        bindChattingViewModel()
         
         // SpeechViewModel의 isKeyboardVisible을 구독하여 배경색 변경
         viewModel.isKeyboardVisible
@@ -68,30 +76,15 @@ class SpeechButtonTextFieldView: UIView{
         
         textFieldBackground.addSubview(textFieldView)
         textFieldBackground.addSubview(speechButton)
+    
         
-//        if let speechButton = speechButton {
-//            textFieldBackground.addSubview(speechButton)
-//        }
-        
-        textFieldBackground.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing:self.trailingAnchor, paddingTop: 10)
+        textFieldBackground.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing:self.trailingAnchor, paddingTop: 10, paddingLeading: 5, paddingTrailing: 5)
         
         textFieldView.anchor(top: textFieldBackground.topAnchor, leading: speechButton.trailingAnchor, bottom: textFieldBackground.bottomAnchor,trailing: textFieldBackground.trailingAnchor, paddingTop: 10, paddingLeading: 12, paddingBottom: 10, paddingTrailing: 12, height: 24)
         
         speechButton.anchor(top: textFieldBackground.topAnchor, leading: textFieldBackground.leadingAnchor, bottom: textFieldBackground.bottomAnchor,trailing: textFieldView.leadingAnchor, paddingTop: 6, paddingLeading: 8, paddingBottom: 6, paddingTrailing: 12, width: 38, height: 32)
     }
 }
-
-//extension SpeechButtonTextFieldView: UITextFieldDelegate {
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        let currentText = textField.text ?? ""
-//        guard let stringRange = Range(range, in: currentText) else { return false }
-//        let updatedText = currentText.replacingCharacters(in: stringRange, with: string)
-//
-//        viewModel?.updateSelectedSentence(updatedText)
-//
-//        return true
-//    }
-//}
 
 extension SpeechButtonTextFieldView {
     private func bindViewModel() {
@@ -110,8 +103,26 @@ extension SpeechButtonTextFieldView {
     
     private func bindTextField() {
         textFieldView.rx.text.orEmpty
-            .map { $0.isEmpty }
-            .bind(to: viewModel?.isEmptyTextField ?? BehaviorSubject<Bool>(value: true))
+            .map { $0.isEmpty } // 비어있을 때 true 를 반환
+            .bind(to: viewModel?.isEmptyTextField ?? BehaviorSubject<Bool>(value: false))
             .disposed(by: disposeBag)
     }
+    
+    /// 키보드의 엔터를 누를시 동작하는 내용
+    private func bindChattingViewModel() {
+       guard let chattingViewModel = chattingViewModel else {
+           return
+       }
+
+       textFieldView.rx.controlEvent(.editingDidEndOnExit)
+           .withLatestFrom(textFieldView.rx.text.orEmpty)
+           .subscribe(onNext: { [weak self] text in
+               chattingViewModel.addMessage(text)
+               self?.textFieldView.text = ""
+           })
+           .disposed(by: disposeBag)
+   }
 }
+
+
+
