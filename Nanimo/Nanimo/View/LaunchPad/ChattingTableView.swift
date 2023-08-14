@@ -29,8 +29,7 @@ class ChattingTableView: UITableView {
         super.init(frame: frame, style: style)
         
         self.separatorStyle = .none
-        
-        self.register(ChattingTableViewCell.self, forCellReuseIdentifier: "ChattingCellId")
+        self.register(ChattingTableViewCell.self, forCellReuseIdentifier: ChattingTableViewCell.chattingCellId)
     }
     
     convenience init(isReversed: Bool, chattingViewModel: ChattingViewModel) {
@@ -44,10 +43,6 @@ class ChattingTableView: UITableView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - methods for layouts
-    
-    
 }
 
 extension ChattingTableView {
@@ -57,7 +52,7 @@ extension ChattingTableView {
         if isReversed == true {
             // 메시지를 가져와 셀에 표시
             viewModel.messages
-                .bind(to: self.rx.items(cellIdentifier: "ChattingCellId", cellType: ChattingTableViewCell.self)) { [weak self] row, message, cell in
+                .bind(to: self.rx.items(cellIdentifier: ChattingTableViewCell.chattingCellId, cellType: ChattingTableViewCell.self)) { [weak self] row, message, cell in
                     cell.reverse = self?.isReversed ?? false
                     
                     print("message: \(message)")

@@ -40,7 +40,6 @@ class SentenceTableView: UIView {
         sentenceTableView.delegate = self
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
