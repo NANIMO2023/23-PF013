@@ -10,6 +10,7 @@ import SoundAnalysis
 
 import RxSwift
 import RxCocoa
+import Lottie
 
 protocol SoundClassifierDelegate {
     func displayPredictionResult(identifier: String, confidence: Double)
@@ -28,6 +29,7 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
     var todayAudioLabel = UILabel()
     
     private var backgroundGradientBlockImage: UIImageView = {
+    let soundVisualizerView: LottieAnimationView = .init(name: "animation")
         let imageView = UIImageView()
         imageView.image = UIImage(named: gradientGreenBlockImage)
         return imageView
@@ -140,7 +142,10 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         minuteLabel.anchor(top: backgroundGradientBlockImage.topAnchor, leading: backgroundGradientBlockImage.leadingAnchor, paddingTop: 85, paddingLeading: 21)
         minuteLabel.setHeight(height: 24)
         
-        soundNotificationLabel.anchor(top: minuteLabel.bottomAnchor, leading: backgroundGradientBlockImage.leadingAnchor, paddingTop: 8, paddingLeading: 21)
+        soundVisualizerView.setHeight(height: 28)
+        soundVisualizerView.setWidth(width: 32)
+        soundVisualizerView.anchor(top: minuteLabel.bottomAnchor, leading: backgroundGradientBlockImage.leadingAnchor, paddingTop: 8, paddingLeading: 21)
+        soundNotificationLabel.anchor(top: minuteLabel.bottomAnchor, leading: soundVisualizerView.trailingAnchor, paddingTop: 8, paddingLeading: 8)
         
         dailyAudioChartHostingView.view.centerX(inView: view)
         dailyAudioChartHostingView.view.setWidth(width: view.bounds.width * 0.98)
@@ -159,5 +164,14 @@ extension MainViewController {
         let percentConfidence = String(format: "%.2f", confidence)
         let myIdentifier = identifierTranslationHelper.identifier[identifier]
         print("identifier: \(String(describing: myIdentifier)), percentConfidence: \(percentConfidence)")
+    }
+}
+
+// MARK: - Animation Configuration
+
+extension MainViewController {
+    func configureAnimation() {
+        soundVisualizerView.loopMode = .loop
+        soundVisualizerView.contentMode = .scaleAspectFill
     }
 }
