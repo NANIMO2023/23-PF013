@@ -7,6 +7,7 @@
 
 import Foundation
 import SoundAnalysis
+
 import RxSwift
 
 class ResultsObserver: NSObject, SNResultsObserving {
@@ -38,7 +39,6 @@ class ResultsObserver: NSObject, SNResultsObserving {
             let confidence = classification.confidence * 100
             if confidence > 60 {
                 predictionSubject.onNext((identifier: classification.identifier, confidence: confidence))
-
             }
         }
     }
