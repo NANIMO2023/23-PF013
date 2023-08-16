@@ -86,6 +86,23 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         
         configureLayout()
         
+        // 소리 분석 및 현재 오디오의 레벨에 따라 visualizer 제어하는 로직
+        soundManager.analyzeAudioAndGetAmplitude()
+            .map { amplitude in
+                return amplitude > 9.5
+            }
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] isHearing in
+                if isHearing {
+                    self?.soundVisualizerView.play()
+                } else {
+                    self?.soundVisualizerView.pause()
+                    self?.soundNotificationLabel.text = "주변이 조용해요"
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        // 소리분석 결과를 구독해 label 업데이트
         resultsObserver.observePredictions()
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] prediction in
