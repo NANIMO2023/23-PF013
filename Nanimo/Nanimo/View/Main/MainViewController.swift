@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import AVFoundation
 import SoundAnalysis
 
 import RxSwift
@@ -19,17 +20,22 @@ protocol SoundClassifierDelegate {
 class MainViewController: UIViewController, SoundClassifierDelegate {
     
     // MARK: - Properties
-    var resultsObserver = ResultsObserver.shared
-    var soundManager = SoundManager()
-    var identifierTranslationHelper = IdentifierTranslationHelper()
-    private var disposeBag = DisposeBag()
-    private var minuteLabel = UILabel()
-    var soundNotificationLabel = UILabel()
-    var soundLabel: String = ""
-    var todayAudioLabel = UILabel()
     
-    private var backgroundGradientBlockImage: UIImageView = {
+    private var resultsObserver = ResultsObserver.shared
+    private var previousPrediction = ""
+    private var isHearing = false
+    private var identifierTranslationHelper = IdentifierTranslationHelper()
+    private var disposeBag = DisposeBag()
+    
+    var soundManager = SoundManager()
+    
+    private let minuteLabel = UILabel()
+    private let soundNotificationLabel = UILabel()
+    private let todayAudioLabel = UILabel()
+    
     let soundVisualizerView: LottieAnimationView = .init(name: "animation")
+    
+    private let backgroundGradientBlockImage: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(named: gradientGreenBlockImage)
         return imageView
@@ -37,7 +43,7 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
     
     let dailyAudioChartHostingView = UIHostingController(rootView: AudioPointMarkView())
     
-    private var detailButton: UIButton = {
+    private let detailButton: UIButton = {
         let button = UIButton()
         button.setTitle("자세히", for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 13, weight: .regular)
@@ -72,21 +78,17 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
     
     // MARK: - Life Cycles
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        soundManager.startAudioEngine()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         resultsObserver.classifierDelegate = self
+        
         makeHostingViewToUIView()
-        [minuteLabel, soundNotificationLabel].forEach { backgroundGradientBlockImage.addSubview($0) }
+        [minuteLabel,soundVisualizerView, soundNotificationLabel].forEach { backgroundGradientBlockImage.addSubview($0) }
         [backgroundGradientBlockImage, todayAudioLabel, detailButton, audioStackView].forEach { view.addSubview($0) }
         setLabel()
-        
         configureLayout()
+        soundManager.startAudioEngine()
         
         // 소리 분석 및 현재 오디오의 레벨에 따라 visualizer 제어하는 로직
         soundManager.analyzeAudioAndGetAmplitude()
@@ -108,11 +110,12 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         resultsObserver.observePredictions()
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] prediction in
-                if let myIdentifier = self?.resultsObserver.identifierHelper.identifier[prediction.identifier] {
+                if let thisIdentifier = self?.resultsObserver.identifierHelper.identifier[prediction.identifier], thisIdentifier != self?.previousPrediction {
                     self?.soundNotificationLabel.fadeOut()
-                    self?.soundNotificationLabel.text = "\(myIdentifier) 소리가 들리고 있어요"
+                    self?.soundNotificationLabel.text = "\(thisIdentifier) 소리가 나고 있어요"
                     self?.soundNotificationLabel.fadeIn()
                     self?.soundNotificationLabel.adjustsFontSizeToFitWidth = true
+                    self?.previousPrediction = thisIdentifier
                 }
             })
             .disposed(by: disposeBag)
@@ -125,8 +128,7 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         
         minuteLabel.setLabel(labelText: " 지금은 ", backgroundColor: .black, weight: .medium, textSize: 16, labelColor: .white)
         
-        soundNotificationLabel.setLabel(labelText: "아무 소리도 들리지 않아요", backgroundColor: .clear, weight: .bold, textSize: 24, labelColor: .black)
-        
+        soundNotificationLabel.setLabel(labelText: "주변이 조용해요", backgroundColor: .clear, weight: .bold, textSize: 24, labelColor: .black)
         
         todayAudioLabel.setLabel(labelText: "오늘 발생한 소리", backgroundColor: .clear, weight: .bold, textSize: 22, labelColor: .black)
     }
@@ -158,6 +160,8 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         audioStackView.anchor(top: todayAudioLabel.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, paddingTop: 5, paddingLeading: 18)
     }
 }
+
+// MARK: - Set Prediction
 
 extension MainViewController {
     func displayPredictionResult(identifier: String, confidence: Double) {
