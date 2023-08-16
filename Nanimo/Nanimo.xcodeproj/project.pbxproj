@@ -8,15 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		3F3624992A7D50730066E531 /* LaunchPadTappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624982A7D50730066E531 /* LaunchPadTappedViewController.swift */; };
-		3F36249B2A7D51030066E531 /* SpeechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249A2A7D51030066E531 /* SpeechViewModel.swift */; };
-		3F36249D2A7D512B0066E531 /* SentenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249C2A7D512B0066E531 /* SentenceModel.swift */; };
 		3F36249F2A7D51670066E531 /* SpeechButtonTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249E2A7D51670066E531 /* SpeechButtonTextFieldView.swift */; };
-		3F3624A12A7D51910066E531 /* SpeechButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A02A7D51910066E531 /* SpeechButtonView.swift */; };
 		3F3624A32A7D51AF0066E531 /* SpeechNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A22A7D51AF0066E531 /* SpeechNotificationView.swift */; };
 		3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A42A7D51C70066E531 /* SentenceTableView.swift */; };
 		3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A62A7D51EB0066E531 /* SentenceTableViewCell.swift */; };
-		3F3624A92A7D520E0066E531 /* ChattingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A82A7D520E0066E531 /* ChattingTableView.swift */; };
-		3F3624AB2A7D522B0066E531 /* ChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */; };
 		3F3624AE2A7D52B90066E531 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3624AD2A7D52B90066E531 /* RxDataSources */; };
 		3F7DBD0A2A86226C00410404 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DBD092A86226C00410404 /* ChattingViewModel.swift */; };
 		BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3242A5D63490086C4B8 /* AppDelegate.swift */; };
@@ -34,6 +29,16 @@
 		BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3662A5E55350086C4B8 /* MainViewController.swift */; };
 		BF05C36A2A5E6C180086C4B8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = BF05C3692A5E6C180086C4B8 /* RxCocoa */; };
 		BF05C36C2A5E6C180086C4B8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF05C36B2A5E6C180086C4B8 /* RxSwift */; };
+		BF3679522A826A970002598A /* ResultsObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEFAAA52A80CEC70038511C /* ResultsObserver.swift */; };
+		BF3679532A826AA10002598A /* IdentifierTranslationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEFAAAA2A8210480038511C /* IdentifierTranslationHelper.swift */; };
+		BF3679542A826AA50002598A /* SoundManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFEFAAA12A80CEB30038511C /* SoundManager.swift */; };
+		BF3679552A826AA90002598A /* SpeechViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249A2A7D51030066E531 /* SpeechViewModel.swift */; };
+		BF3679562A826AC10002598A /* SentenceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249C2A7D512B0066E531 /* SentenceModel.swift */; };
+		BF3679572A826AD30002598A /* SpeechButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A02A7D51910066E531 /* SpeechButtonView.swift */; };
+		BF3679582A826ADE0002598A /* ChattingTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A82A7D520E0066E531 /* ChattingTableView.swift */; };
+		BF3679592A826AE20002598A /* ChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */; };
+		BF3679632A8B6D730002598A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BF3679622A8B6D730002598A /* Lottie */; };
+		BF3679652A8B701E0002598A /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = BF3679642A8B701E0002598A /* animation.json */; };
 		BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85332A72282F0030C02D /* Label+Extension.swift */; };
 		BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85362A724FDB0030C02D /* AudioPointMarkView.swift */; };
 		BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */; };
@@ -91,6 +96,7 @@
 		BF05C3612A5E51750086C4B8 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		BF05C3632A5E520F0086C4B8 /* Literal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Literal.swift; sourceTree = "<group>"; };
 		BF05C3662A5E55350086C4B8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		BF3679642A8B701E0002598A /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = animation.json; path = ../../../../../asset/animation.json; sourceTree = "<group>"; };
 		BF4D85332A72282F0030C02D /* Label+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Extension.swift"; sourceTree = "<group>"; };
 		BF4D85362A724FDB0030C02D /* AudioPointMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPointMarkView.swift; sourceTree = "<group>"; };
 		BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEntityViewModel.swift; sourceTree = "<group>"; };
@@ -100,6 +106,9 @@
 		BF5FFD6B2A7A2ED2002B5F36 /* FoldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldView.swift; sourceTree = "<group>"; };
 		BFE4F3E02A7A13A50053012E /* EmergencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewController.swift; sourceTree = "<group>"; };
 		BFE4F3E42A7A1C3F0053012E /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
+		BFEFAAA12A80CEB30038511C /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
+		BFEFAAA52A80CEC70038511C /* ResultsObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsObserver.swift; sourceTree = "<group>"; };
+		BFEFAAAA2A8210480038511C /* IdentifierTranslationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentifierTranslationHelper.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +119,7 @@
 				3F3624AE2A7D52B90066E531 /* RxDataSources in Frameworks */,
 				BF05C36C2A5E6C180086C4B8 /* RxSwift in Frameworks */,
 				BF05C36A2A5E6C180086C4B8 /* RxCocoa in Frameworks */,
+				BF3679632A8B6D730002598A /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,6 +178,7 @@
 		BF05C3232A5D63490086C4B8 /* Nanimo */ = {
 			isa = PBXGroup;
 			children = (
+				BFEFAAA02A80CEA60038511C /* Audio */,
 				BF4D85382A7250BA0030C02D /* ViewModel */,
 				BF05C35E2A5E51470086C4B8 /* Extension */,
 				BF05C32D2A5D63490086C4B8 /* Nanimo.xcdatamodeld */,
@@ -235,6 +246,7 @@
 		BF05C35A2A5D655F0086C4B8 /* Asset */ = {
 			isa = PBXGroup;
 			children = (
+				BF3679642A8B701E0002598A /* animation.json */,
 				BF05C3302A5D634A0086C4B8 /* Assets.xcassets */,
 			);
 			path = Asset;
@@ -277,6 +289,24 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		BFEFAAA02A80CEA60038511C /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				BFEFAAA92A8210280038511C /* Helper */,
+				BFEFAAA12A80CEB30038511C /* SoundManager.swift */,
+				BFEFAAA52A80CEC70038511C /* ResultsObserver.swift */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		BFEFAAA92A8210280038511C /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				BFEFAAAA2A8210480038511C /* IdentifierTranslationHelper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -297,6 +327,7 @@
 				BF05C3692A5E6C180086C4B8 /* RxCocoa */,
 				BF05C36B2A5E6C180086C4B8 /* RxSwift */,
 				3F3624AD2A7D52B90066E531 /* RxDataSources */,
+				BF3679622A8B6D730002598A /* Lottie */,
 			);
 			productName = Nanimo;
 			productReference = BF05C3212A5D63490086C4B8 /* Nanimo.app */;
@@ -373,6 +404,7 @@
 			packageReferences = (
 				BF05C3682A5E6C180086C4B8 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				3F3624AC2A7D52B90066E531 /* XCRemoteSwiftPackageReference "RxDataSources" */,
+				BF3679612A8B6D730002598A /* XCRemoteSwiftPackageReference "lottie-spm" */,
 			);
 			productRefGroup = BF05C3222A5D63490086C4B8 /* Products */;
 			projectDirPath = "";
@@ -392,6 +424,7 @@
 			files = (
 				BF05C35D2A5D65FE0086C4B8 /* .gitkeep in Resources */,
 				BF05C3342A5D634A0086C4B8 /* LaunchScreen.storyboard in Resources */,
+				BF3679652A8B701E0002598A /* animation.json in Resources */,
 				BF05C3312A5D634A0086C4B8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,32 +451,38 @@
 			buildActionMask = 2147483647;
 			files = (
 				BFE4F3E12A7A13A50053012E /* EmergencyViewController.swift in Sources */,
+				BF3679592A826AE20002598A /* ChattingTableViewCell.swift in Sources */,
 				3F3624A32A7D51AF0066E531 /* SpeechNotificationView.swift in Sources */,
 				BF4D853E2A728D4B0030C02D /* BulletView.swift in Sources */,
 				3F7DBD0A2A86226C00410404 /* ChattingViewModel.swift in Sources */,
 				3F3624A92A7D520E0066E531 /* ChattingTableView.swift in Sources */,
 				3F3624A12A7D51910066E531 /* SpeechButtonView.swift in Sources */,
 				3F36249F2A7D51670066E531 /* SpeechButtonTextFieldView.swift in Sources */,
+				BF3679552A826AA90002598A /* SpeechViewModel.swift in Sources */,
 				BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */,
 				BF05C3622A5E51750086C4B8 /* Color+Extension.swift in Sources */,
-				3F36249D2A7D512B0066E531 /* SentenceModel.swift in Sources */,
 				BF4D853C2A7250E50030C02D /* AudioEntity.swift in Sources */,
 				BF05C32F2A5D63490086C4B8 /* Nanimo.xcdatamodeld in Sources */,
+				BF3679522A826A970002598A /* ResultsObserver.swift in Sources */,
 				BF05C3602A5E515A0086C4B8 /* View+Extension.swift in Sources */,
 				BF5FFD6C2A7A2ED2002B5F36 /* FoldView.swift in Sources */,
 				BFE4F3E52A7A1C3F0053012E /* Preview.swift in Sources */,
 				BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */,
 				3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */,
-				3F36249B2A7D51030066E531 /* SpeechViewModel.swift in Sources */,
 				BF05C3642A5E520F0086C4B8 /* Literal.swift in Sources */,
 				BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */,
-				3F3624AB2A7D522B0066E531 /* ChattingTableViewCell.swift in Sources */,
 				3F3624992A7D50730066E531 /* LaunchPadTappedViewController.swift in Sources */,
+				BF3679542A826AA50002598A /* SoundManager.swift in Sources */,
+				BF3679582A826ADE0002598A /* ChattingTableView.swift in Sources */,
 				BF5FFD6A2A7A2B46002B5F36 /* RoundedButton.swift in Sources */,
 				BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */,
+				BF3679532A826AA10002598A /* IdentifierTranslationHelper.swift in Sources */,
 				BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */,
 				3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */,
+				BF3679562A826AC10002598A /* SentenceModel.swift in Sources */,
 				BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */,
+				BFEFAAA22A80CEB30038511C /* SoundManager.swift in Sources */,
+				BF3679572A826AD30002598A /* SpeechButtonView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -795,6 +834,14 @@
 				minimumVersion = 6.0.0;
 			};
 		};
+		BF3679612A8B6D730002598A /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -812,6 +859,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF05C3682A5E6C180086C4B8 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		BF3679622A8B6D730002598A /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF3679612A8B6D730002598A /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 
