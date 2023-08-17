@@ -19,11 +19,9 @@ class ChattingTableViewCell: UITableViewCell {
         }
     }
     
-    lazy var chattingLabel: UILabel = {
-        let label = UILabel()
-        label.font = .systemFont(ofSize: 16, weight: .regular)
-        return label
-    }()
+    private lazy var messageLabel = ChattingMessageView()
+    private var chattingBackgroundWidthConstraint: NSLayoutConstraint?
+    var chattingBackgroundHeight: CGFloat = 0.0
     
     // MARK: - Life Cycles
     
@@ -31,7 +29,6 @@ class ChattingTableViewCell: UITableViewCell {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         configureTableCell()
-        
     }
     
     required init?(coder: NSCoder) {
@@ -41,11 +38,12 @@ class ChattingTableViewCell: UITableViewCell {
     // MARK: - methods for layouts
     
     private func configureTableCell() {
+        self.addSubview(messageLabel)
         
-        self.addSubview(chattingLabel)
-        
-        chattingLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor)
-        
-        
+        messageLabel.anchor(top: self.safeAreaLayoutGuide.topAnchor, leading: self.safeAreaLayoutGuide.leadingAnchor, bottom: self.safeAreaLayoutGuide.bottomAnchor, trailing: self.safeAreaLayoutGuide.trailingAnchor)
+    }
+ 
+    func configure(name: String?){
+        messageLabel.configure(name: name)
     }
 }

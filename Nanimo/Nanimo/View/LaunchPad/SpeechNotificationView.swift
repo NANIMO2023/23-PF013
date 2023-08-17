@@ -69,9 +69,13 @@ extension SpeechNotificationView {
         case .speech:
             boldText = "켜져"
             attributedText = NSMutableAttributedString(string: "“스피커를 통해 말하기”기능이 켜져 있어요")
+            self.fadeIn(duration: 3)
+            self.fadeOut(duration: 3)
         case .notspeech:
             boldText = "꺼져"
             attributedText = NSMutableAttributedString(string: "“스피커를 통해 말하기”기능이 꺼져 있어요")
+            self.fadeIn(duration: 3)
+            self.fadeOut(duration: 3)
         }
         
         let range = (attributedText.string as NSString).range(of: boldText)
