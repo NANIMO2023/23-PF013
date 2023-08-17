@@ -40,6 +40,8 @@
 		BF3679592A826AE20002598A /* ChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */; };
 		BF3679632A8B6D730002598A /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = BF3679622A8B6D730002598A /* Lottie */; };
 		BF3679692A8D09260002598A /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = BF3679682A8D09260002598A /* animation.json */; };
+		BF36796C2A8E0BC30002598A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BF36796B2A8E0BC30002598A /* Realm */; };
+		BF36796E2A8E0BC30002598A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF36796D2A8E0BC30002598A /* RealmSwift */; };
 		BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85332A72282F0030C02D /* Label+Extension.swift */; };
 		BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85362A724FDB0030C02D /* AudioPointMarkView.swift */; };
 		BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */; };
@@ -118,10 +120,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF36796E2A8E0BC30002598A /* RealmSwift in Frameworks */,
 				3F3624AE2A7D52B90066E531 /* RxDataSources in Frameworks */,
 				BF05C36C2A5E6C180086C4B8 /* RxSwift in Frameworks */,
 				BF05C36A2A5E6C180086C4B8 /* RxCocoa in Frameworks */,
 				BF3679632A8B6D730002598A /* Lottie in Frameworks */,
+				BF36796C2A8E0BC30002598A /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +335,8 @@
 				BF05C36B2A5E6C180086C4B8 /* RxSwift */,
 				3F3624AD2A7D52B90066E531 /* RxDataSources */,
 				BF3679622A8B6D730002598A /* Lottie */,
+				BF36796B2A8E0BC30002598A /* Realm */,
+				BF36796D2A8E0BC30002598A /* RealmSwift */,
 			);
 			productName = Nanimo;
 			productReference = BF05C3212A5D63490086C4B8 /* Nanimo.app */;
@@ -408,6 +414,7 @@
 				BF05C3682A5E6C180086C4B8 /* XCRemoteSwiftPackageReference "RxSwift" */,
 				3F3624AC2A7D52B90066E531 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				BF3679612A8B6D730002598A /* XCRemoteSwiftPackageReference "lottie-spm" */,
+				BF36796A2A8E0BC30002598A /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = BF05C3222A5D63490086C4B8 /* Products */;
 			projectDirPath = "";
@@ -847,6 +854,14 @@
 				minimumVersion = 4.0.0;
 			};
 		};
+		BF36796A2A8E0BC30002598A /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.40.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -869,6 +884,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = BF3679612A8B6D730002598A /* XCRemoteSwiftPackageReference "lottie-spm" */;
 			productName = Lottie;
+		};
+		BF36796B2A8E0BC30002598A /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF36796A2A8E0BC30002598A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		BF36796D2A8E0BC30002598A /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BF36796A2A8E0BC30002598A /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
