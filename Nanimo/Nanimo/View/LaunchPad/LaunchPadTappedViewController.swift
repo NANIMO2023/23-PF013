@@ -116,7 +116,7 @@ class LaunchPadTappedViewController: UIViewController {
             if self.view.frame.origin.y == 0 {
                 self.view.frame.origin.y -= keyboardSize.height
                 self.keyboardHeight = keyboardSize.height
-                hideSubView(notification: true, sentence_Label: false, empty_Chatting: true)
+                hideSubView(notification: true, sentenceLabel: false, emptyChatting: true)
                 
                 
                 speechButtonTextFieldViewTopConstraint.isActive = false
@@ -142,7 +142,7 @@ class LaunchPadTappedViewController: UIViewController {
             self.view.frame.origin.y = 0
         }
         
-        hideSubView(notification: false, sentence_Label: true, empty_Chatting: false)
+        hideSubView(notification: false, sentenceLabel: true, emptyChatting: false)
         viewModel.isKeyboardVisible.accept(false)
         
         speechButtonTextFieldViewTopConstraint.isActive = false
@@ -153,13 +153,13 @@ class LaunchPadTappedViewController: UIViewController {
     }
     
     /// View 를 감추거나 보여주는 역할을 하는 메서드
-    func hideSubView(notification: Bool, sentence_Label: Bool, empty_Chatting: Bool) {
+    func hideSubView(notification: Bool, sentenceLabel: Bool, emptyChatting: Bool) {
         speechNotificationView.isHidden = notification
-        sentenceTableView.isHidden = sentence_Label
-        lastMessageLabel.isHidden = sentence_Label
-        emptyView.isHidden = empty_Chatting
-        chattingTableView.isHidden = empty_Chatting
-        reverseChattingTableView.isHidden = empty_Chatting
+        sentenceTableView.isHidden = sentenceLabel
+        lastMessageLabel.isHidden = sentenceLabel
+        emptyView.isHidden = emptyChatting
+        chattingTableView.isHidden = emptyChatting
+        reverseChattingTableView.isHidden = emptyChatting
     }
     
     /// 앱의 여러 상황에 맞게 분기처리를 하기 위한 함수
