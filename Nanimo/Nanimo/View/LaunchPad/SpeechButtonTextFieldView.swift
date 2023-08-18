@@ -116,8 +116,9 @@ extension SpeechButtonTextFieldView {
 
        textFieldView.rx.controlEvent(.editingDidEndOnExit)
            .withLatestFrom(textFieldView.rx.text.orEmpty)
+           .filter { !$0.isEmpty }
            .subscribe(onNext: { [weak self] text in
-               chattingViewModel.addMessage(text)
+               chattingViewModel.addMessageReverseTable(text)
                self?.textFieldView.text = ""
            })
            .disposed(by: disposeBag)
