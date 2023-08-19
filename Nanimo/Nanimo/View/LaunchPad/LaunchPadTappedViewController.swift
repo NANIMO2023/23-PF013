@@ -49,7 +49,8 @@ class LaunchPadTappedViewController: UIViewController {
         sentenceTableView.isHidden = true
         lastMessageLabel.isHidden = true
         
-        chattingViewModel.addIncomingMessageTable("주문하시겠어요?")
+        speechButtonTextFieldView.speechButton.delegate = self
+        
         bindViewModel()
         speechNotificationView.bind()
         
@@ -66,10 +67,51 @@ class LaunchPadTappedViewController: UIViewController {
         /// 키보드가 올라가고 내려갈때 동작하는 메서드 설정
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
+        SpeechRecognitionManager.shared.requestAuthorization()
+            .subscribe(onNext: { [weak self] authorized in
+                if authorized {
+                    print("STT 권한 인증")
+                    self?.startRecognition()
+                } else {
+                    // 권한 거부에 대한 처리
+                    print("Speech recognition authorization denied")
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     // MARK: - methods for layouts
+    
+    private func startRecognition() {
+        // 음성 인식 시작
+        SpeechRecognitionManager.shared.startRecording()
+            .subscribe(
+                onNext: { [weak self] error in
+                    // 에러 처리 (옵셔널)
+                    if let error = error {
+                        print("Recording error: \(error)")
+                    }
+                },
+                onDisposed: {
+                    print("Recording completed or stopped")
+                }
+            )
+            .disposed(by: disposeBag)
+
+        // 인식된 텍스트 받아오기
+        SpeechRecognitionManager.shared.recognition
+            .subscribe(onNext: { [weak self] text in
+                self?.chattingViewModel.addIncomingMessageTable(text)
+                print("Recognized text: \(text)")
+                // TODO: 화면에 텍스트 표시 또는 기타 처리
+            })
+            .disposed(by: disposeBag)
+    }
     
     private func addSubviews() {
         [reverseChattingTableView, chattingTableView, speechButtonTextFieldView, sentenceTableView, speechNotificationView, lastMessageLabel, emptyView].forEach { view.addSubview($0) }
@@ -190,5 +232,17 @@ extension LaunchPadTappedViewController: UIGestureRecognizerDelegate {
             return false
         }
         return true
+    }
+}
+
+extension LaunchPadTappedViewController: SpeechButtonViewDelegate {
+    func didTapSpeechButton(_ mode: SpeechMode) {
+        print("현재 모드 : \(mode)")
+        switch mode {
+        case .speech:
+            self.startRecognition()
+        case .notspeech:
+            SpeechRecognitionManager.shared.stopRecording()
+        }
     }
 }

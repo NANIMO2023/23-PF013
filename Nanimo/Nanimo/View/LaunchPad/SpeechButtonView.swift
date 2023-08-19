@@ -12,6 +12,8 @@ class SpeechButtonView: UIButton {
     
     let viewModel: SpeechViewModel
     private let disposeBag = DisposeBag()
+    weak var delegate: SpeechButtonViewDelegate?
+    
 
     let imageConfig = UIImage.SymbolConfiguration(pointSize: 12, weight: .regular)
     
@@ -37,11 +39,20 @@ class SpeechButtonView: UIButton {
 
     @objc private func didTap() {
         viewModel.switchMode()
+        if viewModel.mode == .speech {
+            print(viewModel.mode)
+            delegate?.didTapSpeechButton(.speech)
+            
+        } else {
+            // 여기서 음성 인식 중지
+            delegate?.didTapSpeechButton(.notspeech)
+            
+        }
     }
 }
 
 extension SpeechButtonView {
-    func setupSocialButton(_ mode: SpeechViewModel.SpeechMode) {
+    func setupSocialButton(_ mode: SpeechMode) {
         var configuration = UIButton.Configuration.filled()
         configuration.cornerStyle = .capsule
         configuration.imagePadding = 4
@@ -61,4 +72,8 @@ extension SpeechButtonView {
         self.configuration = configuration
         self.clipsToBounds = true
     }
+}
+
+protocol SpeechButtonViewDelegate: AnyObject {
+    func didTapSpeechButton(_ mode: SpeechMode)
 }

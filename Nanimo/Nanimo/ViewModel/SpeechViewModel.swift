@@ -8,14 +8,16 @@
 import RxSwift
 import RxRelay
 
+enum SpeechMode {
+    case speech
+    case notspeech
+}
+
 class SpeechViewModel {
     
     // MARK: - Properties
     
-    enum SpeechMode {
-        case speech
-        case notspeech
-    }
+    var mode: SpeechMode = .speech
     
     let modeSubject: BehaviorSubject<SpeechMode>
     let sentences: BehaviorSubject<[SentenceModel]>
@@ -67,8 +69,10 @@ class SpeechViewModel {
         let newMode: SpeechMode
         if let currentMode = try? modeSubject.value(), currentMode == .speech {
             newMode = .notspeech
+            mode = .notspeech
         } else {
             newMode = .speech
+            mode = .speech
         }
         
         modeSubject.onNext(newMode)
