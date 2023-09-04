@@ -22,7 +22,8 @@ class ResultsObserver: NSObject, SNResultsObserving {
             predictionSubject
                 .observe(on: MainScheduler.instance)
                 .subscribe(onNext: { [weak self] prediction in
-                    self?.classifierDelegate?.displayPredictionResult(identifier: prediction.identifier, confidence: prediction.confidence)
+                    self?.classifierDelegate?.displayPredictionResult(identifier: prediction.identifier,
+                                                                      confidence: prediction.confidence)
                 })
                 .disposed(by: disposeBag)
         }

@@ -42,6 +42,9 @@
 		BF3679692A8D09260002598A /* animation.json in Resources */ = {isa = PBXBuildFile; fileRef = BF3679682A8D09260002598A /* animation.json */; };
 		BF36796C2A8E0BC30002598A /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = BF36796B2A8E0BC30002598A /* Realm */; };
 		BF36796E2A8E0BC30002598A /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = BF36796D2A8E0BC30002598A /* RealmSwift */; };
+		BF3679702A8E0CF00002598A /* SoundData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF36796F2A8E0CF00002598A /* SoundData.swift */; };
+		BF3679732A8E2E340002598A /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3679722A8E2E340002598A /* DatabaseManager.swift */; };
+		BF3679752A8E34DC0002598A /* SoundViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3679742A8E34DC0002598A /* SoundViewModel.swift */; };
 		BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85332A72282F0030C02D /* Label+Extension.swift */; };
 		BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85362A724FDB0030C02D /* AudioPointMarkView.swift */; };
 		BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */; };
@@ -101,6 +104,9 @@
 		BF05C3632A5E520F0086C4B8 /* Literal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Literal.swift; sourceTree = "<group>"; };
 		BF05C3662A5E55350086C4B8 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		BF3679682A8D09260002598A /* animation.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = animation.json; sourceTree = "<group>"; };
+		BF36796F2A8E0CF00002598A /* SoundData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundData.swift; sourceTree = "<group>"; };
+		BF3679722A8E2E340002598A /* DatabaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
+		BF3679742A8E34DC0002598A /* SoundViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundViewModel.swift; sourceTree = "<group>"; };
 		BF4D85332A72282F0030C02D /* Label+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label+Extension.swift"; sourceTree = "<group>"; };
 		BF4D85362A724FDB0030C02D /* AudioPointMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPointMarkView.swift; sourceTree = "<group>"; };
 		BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEntityViewModel.swift; sourceTree = "<group>"; };
@@ -185,6 +191,7 @@
 		BF05C3232A5D63490086C4B8 /* Nanimo */ = {
 			isa = PBXGroup;
 			children = (
+				BF3679712A8E2E1C0002598A /* DatabaseManager */,
 				BFEFAAA02A80CEA60038511C /* Audio */,
 				BF4D85382A7250BA0030C02D /* ViewModel */,
 				BF05C35E2A5E51470086C4B8 /* Extension */,
@@ -245,6 +252,7 @@
 				BF05C35C2A5D65FE0086C4B8 /* .gitkeep */,
 				BF4D853B2A7250E50030C02D /* AudioEntity.swift */,
 				3F36249C2A7D512B0066E531 /* SentenceModel.swift */,
+				BF36796F2A8E0CF00002598A /* SoundData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -277,6 +285,14 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		BF3679712A8E2E1C0002598A /* DatabaseManager */ = {
+			isa = PBXGroup;
+			children = (
+				BF3679722A8E2E340002598A /* DatabaseManager.swift */,
+			);
+			path = DatabaseManager;
+			sourceTree = "<group>";
+		};
 		BF4D85352A724FBD0030C02D /* AudioChart */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +307,7 @@
 				BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */,
 				3F36249A2A7D51030066E531 /* SpeechViewModel.swift */,
 				3F7DBD092A86226C00410404 /* ChattingViewModel.swift */,
+				BF3679742A8E34DC0002598A /* SoundViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -464,6 +481,7 @@
 				BF3679592A826AE20002598A /* ChattingTableViewCell.swift in Sources */,
 				3F3624A32A7D51AF0066E531 /* SpeechNotificationView.swift in Sources */,
 				BF4D853E2A728D4B0030C02D /* BulletView.swift in Sources */,
+				BF3679752A8E34DC0002598A /* SoundViewModel.swift in Sources */,
 				3F7DBD0A2A86226C00410404 /* ChattingViewModel.swift in Sources */,
 				3F36249F2A7D51670066E531 /* SpeechButtonTextFieldView.swift in Sources */,
 				BF3679552A826AA90002598A /* SpeechViewModel.swift in Sources */,
@@ -487,8 +505,10 @@
 				BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */,
 				BF3679532A826AA10002598A /* IdentifierTranslationHelper.swift in Sources */,
 				BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */,
+				BF3679732A8E2E340002598A /* DatabaseManager.swift in Sources */,
 				3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */,
 				BF3679562A826AC10002598A /* SentenceModel.swift in Sources */,
+				BF3679702A8E0CF00002598A /* SoundData.swift in Sources */,
 				BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */,
 				BF3679572A826AD30002598A /* SpeechButtonView.swift in Sources */,
 			);

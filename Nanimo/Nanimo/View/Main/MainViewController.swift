@@ -12,6 +12,7 @@ import SoundAnalysis
 import RxSwift
 import RxCocoa
 import Lottie
+import RealmSwift
 
 protocol SoundClassifierDelegate {
     func displayPredictionResult(identifier: String, confidence: Double)
@@ -20,6 +21,8 @@ protocol SoundClassifierDelegate {
 class MainViewController: UIViewController, SoundClassifierDelegate {
     
     // MARK: - Properties
+    
+    private let realm = DatabaseManager.shared
     
     private var resultsObserver = ResultsObserver.shared
     private var previousPrediction = ""
@@ -93,7 +96,7 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         // 소리 분석 및 현재 오디오의 레벨에 따라 visualizer 제어하는 로직
         soundManager.analyzeAudioAndGetAmplitude()
             .map { amplitude in
-                return amplitude > 9.5
+                return amplitude > 11.0
             }
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] isHearing in

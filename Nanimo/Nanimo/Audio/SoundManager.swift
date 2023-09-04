@@ -46,7 +46,7 @@ class SoundManager {
             print("Error in starting the Audio Engine")
         }
     }
-    
+    // TODO: 반환값을 튜플로해서 manager를 한번에 처리하면 어떨까
     public func analyzeAudioAndGetAmplitude() -> Observable<CGFloat> {
         return Observable.create { observer in
             self.audioEngine.inputNode.installTap(onBus: 0, bufferSize: 128, format: self.inputFormat) { buffer, time in
@@ -82,4 +82,3 @@ class SoundManager {
         analyzer.removeAllRequests()
     }
 }
-
