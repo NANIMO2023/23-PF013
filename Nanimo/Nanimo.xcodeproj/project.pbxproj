@@ -14,6 +14,7 @@
 		3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A62A7D51EB0066E531 /* SentenceTableViewCell.swift */; };
 		3F3624AE2A7D52B90066E531 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3624AD2A7D52B90066E531 /* RxDataSources */; };
 		3F72E8082A8E30A0008E2579 /* ChattingMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72E8072A8E30A0008E2579 /* ChattingMessageView.swift */; };
+		3F72E80C2A8FA4C6008E2579 /* SpeechRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72E80B2A8FA4C6008E2579 /* SpeechRecognitionManager.swift */; };
 		3F7DBD0A2A86226C00410404 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DBD092A86226C00410404 /* ChattingViewModel.swift */; };
 		BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3242A5D63490086C4B8 /* AppDelegate.swift */; };
 		BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */; };
@@ -79,6 +80,7 @@
 		3F3624A82A7D520E0066E531 /* ChattingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableView.swift; sourceTree = "<group>"; };
 		3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewCell.swift; sourceTree = "<group>"; };
 		3F72E8072A8E30A0008E2579 /* ChattingMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingMessageView.swift; sourceTree = "<group>"; };
+		3F72E80B2A8FA4C6008E2579 /* SpeechRecognitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionManager.swift; sourceTree = "<group>"; };
 		3F7DBD092A86226C00410404 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
 		BF05C3212A5D63490086C4B8 /* Nanimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nanimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF05C3242A5D63490086C4B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				BFEFAAA92A8210280038511C /* Helper */,
 				BFEFAAA12A80CEB30038511C /* SoundManager.swift */,
 				BFEFAAA52A80CEC70038511C /* ResultsObserver.swift */,
+				3F72E80B2A8FA4C6008E2579 /* SpeechRecognitionManager.swift */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -471,6 +474,7 @@
 				BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */,
 				3F3624992A7D50730066E531 /* LaunchPadTappedViewController.swift in Sources */,
 				BF3679542A826AA50002598A /* SoundManager.swift in Sources */,
+				3F72E80C2A8FA4C6008E2579 /* SpeechRecognitionManager.swift in Sources */,
 				BF3679582A826ADE0002598A /* ChattingTableView.swift in Sources */,
 				BF5FFD6A2A7A2B46002B5F36 /* RoundedButton.swift in Sources */,
 				BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */,
@@ -648,9 +652,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = N3H27N59VG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Nanimo/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"앱을 사용하기 위해선 마이크가 필요합니다\"";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"음성을 텍스트로 변환하기 위해 마이크 접근을 허용합니다\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
@@ -676,9 +682,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = D9CAJN27UH;
+				DEVELOPMENT_TEAM = N3H27N59VG;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Nanimo/Info.plist;
+				INFOPLIST_KEY_NSMicrophoneUsageDescription = "\"앱을 사용하기 위해선 마이크가 필요합니다\"";
+				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "\"음성을 텍스트로 변환하기 위해 마이크 접근을 허용합니다\"";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";

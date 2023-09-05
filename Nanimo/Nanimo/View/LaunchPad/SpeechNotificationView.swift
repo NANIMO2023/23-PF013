@@ -61,7 +61,7 @@ extension SpeechNotificationView {
             .disposed(by: disposeBag)
     }
     
-    func updateLabelText(for mode: SpeechViewModel.SpeechMode) {
+    func updateLabelText(for mode: SpeechMode) {
         let attributedText: NSMutableAttributedString
         let boldText: String
         
