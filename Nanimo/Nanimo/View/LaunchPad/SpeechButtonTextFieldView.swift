@@ -24,7 +24,7 @@ class SpeechButtonTextFieldView: UIView{
         }
     }
     
-    var speechButton: SpeechButtonView
+//    var speechButton: SpeechButtonView
 
     private let disposeBag = DisposeBag()
     
@@ -47,7 +47,7 @@ class SpeechButtonTextFieldView: UIView{
     
     init(viewModel: SpeechViewModel, chattingViewModel: ChattingViewModel) {
         self.viewModel = viewModel
-        self.speechButton = SpeechButtonView(viewModel: viewModel)
+//        self.speechButton = SpeechButtonView(viewModel: viewModel)
         self.chattingViewModel = chattingViewModel
         
         super.init(frame: .zero)
@@ -75,14 +75,14 @@ class SpeechButtonTextFieldView: UIView{
         self.addSubview(textFieldBackground)
         
         textFieldBackground.addSubview(textFieldView)
-        textFieldBackground.addSubview(speechButton)
+//        textFieldBackground.addSubview(speechButton)
     
         
         textFieldBackground.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing:self.trailingAnchor, paddingTop: 10, paddingLeading: 5, paddingTrailing: 5)
         
-        textFieldView.anchor(top: textFieldBackground.topAnchor, leading: speechButton.trailingAnchor, bottom: textFieldBackground.bottomAnchor,trailing: textFieldBackground.trailingAnchor, paddingTop: 10, paddingLeading: 12, paddingBottom: 10, paddingTrailing: 12, height: 24)
+        textFieldView.anchor(top: textFieldBackground.topAnchor, leading: textFieldBackground.leadingAnchor, bottom: textFieldBackground.bottomAnchor,trailing: textFieldBackground.trailingAnchor, paddingTop: 10, paddingLeading: 12, paddingBottom: 10, paddingTrailing: 12, height: 24)
         
-        speechButton.anchor(top: textFieldBackground.topAnchor, leading: textFieldBackground.leadingAnchor, bottom: textFieldBackground.bottomAnchor,trailing: textFieldView.leadingAnchor, paddingTop: 6, paddingLeading: 8, paddingBottom: 6, paddingTrailing: 12, width: 38, height: 32)
+//        speechButton.anchor(top: textFieldBackground.topAnchor, leading: textFieldBackground.leadingAnchor, bottom: textFieldBackground.bottomAnchor,trailing: textFieldView.leadingAnchor, paddingTop: 6, paddingLeading: 8, paddingBottom: 6, paddingTrailing: 12, width: 38, height: 32)
     }
 }
 

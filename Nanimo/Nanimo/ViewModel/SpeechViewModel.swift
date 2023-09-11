@@ -17,7 +17,7 @@ class SpeechViewModel {
     
     // MARK: - Properties
     
-    var mode: SpeechMode = .speech
+    var mode: SpeechMode = .notspeech
     
     let modeSubject: BehaviorSubject<SpeechMode>
     let sentences: BehaviorSubject<[SentenceModel]>

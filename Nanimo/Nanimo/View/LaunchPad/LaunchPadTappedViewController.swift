@@ -12,7 +12,7 @@ class LaunchPadTappedViewController: UIViewController {
 
     // MARK: - Properties
     
-    private var viewModel = SpeechViewModel(initialMode: .speech)
+    private var viewModel = SpeechViewModel(initialMode: .notspeech)
     private var chattingViewModel = ChattingViewModel()
     
     private lazy var speechButtonTextFieldView = SpeechButtonTextFieldView(viewModel: viewModel, chattingViewModel: chattingViewModel)
@@ -20,11 +20,14 @@ class LaunchPadTappedViewController: UIViewController {
     private lazy var sentenceTableView = SentenceTableView(viewModel: viewModel)
     private lazy var chattingTableView = ChattingTableView(isReversed: false, chattingViewModel: chattingViewModel)
     private lazy var reverseChattingTableView = ChattingTableView(isReversed: true, chattingViewModel: chattingViewModel)
-    private lazy var lastMessageLabel = ChattingMessageView()
+    
+    private lazy var speechButtonView = SpeechButtonView(viewModel: viewModel)
+    
+//    private lazy var lastMessageLabel = ChattingMessageView()
     
     private lazy var emptyView: UIView = {
         let view = UIView()
-        view.backgroundColor = .emptyViewGray
+        view.backgroundColor = .chattingCellBackgroundGray
         return view
     }()
     
@@ -47,22 +50,23 @@ class LaunchPadTappedViewController: UIViewController {
         hideKeyboardWhenTappedAround()
         
         sentenceTableView.isHidden = true
-        lastMessageLabel.isHidden = true
+//        lastMessageLabel.isHidden = true
         
-        speechButtonTextFieldView.speechButton.delegate = self
+//        speechButtonTextFieldView.speechButton.delegate = self
         
         bindViewModel()
         speechNotificationView.bind()
         
         speechNotificationView.fadeOut(duration: 3)
+
         
-        chattingViewModel.incomingMessages
-            .map { $0.last }         // 배열의 마지막 값을 가져옴
-            .filter { $0 != nil }    // nil이 아닌 값만 필터링
-            .subscribe(onNext: { [weak self] latestMessage in
-                self?.lastMessageLabel.configure(name: latestMessage)
-            })
-            .disposed(by: disposeBag)
+//        chattingViewModel.incomingMessages
+//            .map { $0.last }         // 배열의 마지막 값을 가져옴
+//            .filter { $0 != nil }    // nil이 아닌 값만 필터링
+//            .subscribe(onNext: { [weak self] latestMessage in
+//                self?.lastMessageLabel.configure(name: latestMessage,)
+//            })
+//            .disposed(by: disposeBag)
         
         /// 키보드가 올라가고 내려갈때 동작하는 메서드 설정
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
@@ -114,13 +118,13 @@ class LaunchPadTappedViewController: UIViewController {
     }
     
     private func addSubviews() {
-        [reverseChattingTableView, chattingTableView, speechButtonTextFieldView, sentenceTableView, speechNotificationView, lastMessageLabel, emptyView].forEach { view.addSubview($0) }
+        [reverseChattingTableView, chattingTableView, speechButtonTextFieldView, sentenceTableView, speechNotificationView, emptyView, speechButtonView].forEach { view.addSubview($0) }
     }
     
     private func configureConstraints() {
         speechButtonTextFieldViewTopConstraint = speechButtonTextFieldView.topAnchor.constraint(equalTo: speechNotificationView.bottomAnchor, constant: 8)
         speechButtonTextFieldViewTopConstraint.isActive = true
-    
+        
         reverseChattingTableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: emptyView.topAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingBottom: 10, height: 341)
         
         emptyView.anchor(leading: view.safeAreaLayoutGuide.leadingAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, height: 5)
@@ -132,6 +136,10 @@ class LaunchPadTappedViewController: UIViewController {
         speechButtonTextFieldView.anchor(leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingLeading: 0, paddingTrailing: 0)
                                     
         speechButtonTextFieldView.setHeight(height: 54)
+        
+        speechButtonView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 17, paddingLeading: 15, paddingTrailing: 15)
+        speechButtonView.transform = CGAffineTransform(scaleX: -1, y: -1)
+        
     }
     
     /// 키보드가 올라와 있을 때 다른 곳을 터치 시 키보드가 사라지는 역할을 하는 메서드
@@ -165,11 +173,11 @@ class LaunchPadTappedViewController: UIViewController {
                 speechButtonTextFieldViewTopConstraint = speechButtonTextFieldView.topAnchor.constraint(equalTo: sentenceTableView.bottomAnchor, constant: 0)
                 speechButtonTextFieldViewTopConstraint.isActive = true
 
-                sentenceTableView.anchor(leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: speechButtonTextFieldView.topAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: keyboardSize.height)
+                sentenceTableView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: speechButtonTextFieldView.topAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: keyboardSize.height)
 
                 speechButtonTextFieldView.anchor(leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor)
 
-                lastMessageLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: sentenceTableView.topAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: keyboardSize.height, paddingBottom: 10)
+//                lastMessageLabel.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: sentenceTableView.topAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: keyboardSize.height, paddingBottom: 10)
 
                 viewModel.isKeyboardVisible.accept(true)
                 
@@ -198,7 +206,7 @@ class LaunchPadTappedViewController: UIViewController {
     func hideSubView(notification: Bool, sentenceLabel: Bool, emptyChatting: Bool) {
         speechNotificationView.isHidden = notification
         sentenceTableView.isHidden = sentenceLabel
-        lastMessageLabel.isHidden = sentenceLabel
+//        lastMessageLabel.isHidden = sentenceLabel
         emptyView.isHidden = emptyChatting
         chattingTableView.isHidden = emptyChatting
         reverseChattingTableView.isHidden = emptyChatting

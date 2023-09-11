@@ -6,15 +6,17 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class ChattingMessageView: UIView {
 
     // MARK: - Properties
     
     private lazy var chattingBackground: UIView = {
-       let view = UIView()
+        let view = UIView()
         view.backgroundColor = .chattingCellBackgroundGray
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = 20
         return view
     }()
     
@@ -22,12 +24,14 @@ class ChattingMessageView: UIView {
         let label = UILabel()
         label.numberOfLines = 0
         label.lineBreakMode = .byCharWrapping
-        label.font = .systemFont(ofSize: 36, weight: .regular)
+        label.font = .systemFont(ofSize: 16, weight: .regular)
         return label
     }()
 
     var chattingBackgroundWidthConstraint: NSLayoutConstraint?
     var chattingBackgroundHeight: CGFloat = 0.0
+    
+    var disposeBag = DisposeBag()
     
     // MARK: - Life Cycles
     
