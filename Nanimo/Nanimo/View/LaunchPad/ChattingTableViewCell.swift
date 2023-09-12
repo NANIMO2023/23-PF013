@@ -13,7 +13,7 @@ class ChattingTableViewCell: UITableViewCell {
     
     static let chattingCellId = "ChattingCellId"
     
-    private lazy var chattingBackground: UIView = {
+    private lazy var chattingBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .chattingCellBackgroundGray
         view.layer.cornerRadius = 20
@@ -46,14 +46,14 @@ class ChattingTableViewCell: UITableViewCell {
     // MARK: - methods for layouts
     
     private func configureTableCell() {
-        self.addSubview(chattingBackground)
-        chattingBackground.addSubview(chattingLabel)
+        self.addSubview(chattingBackgroundView)
+        chattingBackgroundView.addSubview(chattingLabel)
         
-        chattingBackground.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, paddingTop: 10, paddingLeading: 12, paddingBottom: 10, paddingTrailing: 12)
+        chattingBackgroundView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, paddingTop: 10, paddingLeading: 12, paddingBottom: 10, paddingTrailing: 12)
         
-        chattingLabel.anchor(top: chattingBackground.topAnchor, leading: chattingBackground.leadingAnchor, bottom: chattingBackground.bottomAnchor, trailing: chattingBackground.trailingAnchor, paddingTop: 10, paddingLeading: 12, paddingBottom: 10, paddingTrailing: 12)
+        chattingLabel.anchor(top: chattingBackgroundView.topAnchor, leading: chattingBackgroundView.leadingAnchor, bottom: chattingBackgroundView.bottomAnchor, trailing: chattingBackgroundView.trailingAnchor, paddingTop: 10, paddingLeading: 12, paddingBottom: 10, paddingTrailing: 12)
         
-        chattingBackgroundWidthConstraint = chattingBackground.widthAnchor.constraint(equalToConstant: 0)  // 초기값 0으로 설정
+        chattingBackgroundWidthConstraint = chattingBackgroundView.widthAnchor.constraint(equalToConstant: 0)  // 초기값 0으로 설정
         chattingBackgroundWidthConstraint?.isActive = true
     }
  

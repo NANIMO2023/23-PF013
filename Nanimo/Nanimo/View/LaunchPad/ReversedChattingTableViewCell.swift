@@ -31,7 +31,7 @@ class ReversedChattingTableViewCell: UITableViewCell {
         return view
     }()
     
-    private lazy var chattingBackground: UIView = {
+    private lazy var chattingBackgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.cornerRadius = 20
@@ -52,7 +52,7 @@ class ReversedChattingTableViewCell: UITableViewCell {
         return label
     }()
     
-    lazy var micImage: UIImageView = {
+    lazy var micImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = UIImage(systemName: "waveform.and.mic")
         imageView.contentMode = .scaleAspectFit
@@ -80,19 +80,19 @@ class ReversedChattingTableViewCell: UITableViewCell {
     
     private func configureTableCell() {
         self.addSubview(shadowView)
-        shadowView.addSubview(chattingBackground)
-        chattingBackground.addSubview(chattingLabel)
-        chattingBackground.addSubview(micImage)
+        shadowView.addSubview(chattingBackgroundView)
+        chattingBackgroundView.addSubview(chattingLabel)
+        chattingBackgroundView.addSubview(micImage)
         
         shadowView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, paddingTop: 10, paddingLeading: 12, paddingBottom: 10, paddingTrailing: 12)
             
-        chattingBackground.anchor(top: shadowView.topAnchor, leading: shadowView.leadingAnchor, bottom: shadowView.bottomAnchor, trailing: shadowView.trailingAnchor)
+        chattingBackgroundView.anchor(top: shadowView.topAnchor, leading: shadowView.leadingAnchor, bottom: shadowView.bottomAnchor, trailing: shadowView.trailingAnchor)
         
-        micImage.anchor(top: chattingBackground.topAnchor, leading: chattingBackground.leadingAnchor, bottom: chattingBackground.bottomAnchor, trailing: chattingLabel.leadingAnchor, paddingTop: 8, paddingLeading: 12, paddingBottom: 8, paddingTrailing: 8, width: 21, height: 21)
+        micImage.anchor(top: chattingBackgroundView.topAnchor, leading: chattingBackgroundView.leadingAnchor, bottom: chattingBackgroundView.bottomAnchor, trailing: chattingLabel.leadingAnchor, paddingTop: 8, paddingLeading: 12, paddingBottom: 8, paddingTrailing: 8, width: 21, height: 21)
         
-        chattingLabel.anchor(top: chattingBackground.topAnchor, leading: micImage.trailingAnchor, bottom: chattingBackground.bottomAnchor, trailing: chattingBackground.trailingAnchor, paddingTop: 8, paddingBottom: 8, paddingTrailing: 12)
+        chattingLabel.anchor(top: chattingBackgroundView.topAnchor, leading: micImage.trailingAnchor, bottom: chattingBackgroundView.bottomAnchor, trailing: chattingBackgroundView.trailingAnchor, paddingTop: 8, paddingBottom: 8, paddingTrailing: 12)
         
-        chattingBackgroundWidthConstraint = chattingBackground.widthAnchor.constraint(equalToConstant: 0)  // 초기값 0으로 설정
+        chattingBackgroundWidthConstraint = chattingBackgroundView.widthAnchor.constraint(equalToConstant: 0)  // 초기값 0으로 설정
         chattingBackgroundWidthConstraint?.isActive = true
     }
  
@@ -117,7 +117,7 @@ class ReversedChattingTableViewCell: UITableViewCell {
     private func bindViewModel() {
         viewModel?.isInputCompletedRelay
             .bind(onNext: { [weak self] completed in
-                self?.chattingBackground.backgroundColor = completed ? .black : .white
+                self?.chattingBackgroundView.backgroundColor = completed ? .black : .white
                 self?.chattingLabel.textColor = completed ? .white : .black
             })
             .disposed(by: disposeBag)
