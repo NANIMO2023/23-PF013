@@ -52,10 +52,6 @@ extension UIColor {
     }
     
     static var chattingCellBackgroundGray: UIColor {
-        return UIColor(rgb: 0xE0E0E0)
-    }
-    
-    static var emptyViewGray: UIColor {
         return UIColor(rgb: 0xF6F6F5)
     }
 }

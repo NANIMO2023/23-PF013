@@ -30,6 +30,7 @@ class ChattingTableView: UITableView {
         self.allowsSelection = false
         self.separatorStyle = .none
         self.register(ChattingTableViewCell.self, forCellReuseIdentifier: ChattingTableViewCell.chattingCellId)
+        self.register(ReversedChattingTableViewCell.self, forCellReuseIdentifier: ReversedChattingTableViewCell.reverseChattingCellId)
     }
     
     convenience init(isReversed: Bool, chattingViewModel: ChattingViewModel) {
@@ -52,17 +53,13 @@ extension ChattingTableView {
             // 메시지를 가져와 셀에 표시
             viewModel.myMessages
                 .bind(to: self.rx.items(cellIdentifier: ChattingTableViewCell.chattingCellId, cellType: ChattingTableViewCell.self)) { [weak self] row, message, cell in
-                    cell.reverse = self?.isReversed ?? false
-                    
                     print("message: \(message)")
                     cell.configure(name: message)
                 }
                 .disposed(by: disposeBag)
         } else {
             viewModel.incomingMessages
-                .bind(to: self.rx.items(cellIdentifier: ChattingTableViewCell.chattingCellId, cellType: ChattingTableViewCell.self)) { [weak self] row, message, cell in
-                    cell.reverse = self?.isReversed ?? false
-                    
+                .bind(to: self.rx.items(cellIdentifier: ReversedChattingTableViewCell.reverseChattingCellId, cellType: ReversedChattingTableViewCell.self)) { [weak self] row, message, cell in
                     print("incomingMessage: \(message)")
                     cell.configure(name: message)
                     viewModel.updateHeight(cell.chattingBackgroundHeight)

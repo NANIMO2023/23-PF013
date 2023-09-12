@@ -7,11 +7,13 @@
 
 import Foundation
 import RxSwift
+import RxRelay
 
 class ChattingViewModel {
     let myMessages = BehaviorSubject<[String]>(value: [])
     let incomingMessages = BehaviorSubject<[String]>(value: [])
     let cellHeightSubject = PublishSubject<CGFloat>()
+    let isInputCompletedRelay = BehaviorRelay(value: false)
     
     // 새 메시지를 추가하는 메서드
     func addMessageReverseTable(_ message: String) {

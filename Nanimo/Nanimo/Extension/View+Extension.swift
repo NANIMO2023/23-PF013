@@ -96,3 +96,14 @@ extension UIView {
         })
     }
 }
+
+// MARK: - Shadow
+
+extension UIView {
+    func customShadow(color: UIColor, width: Int, height: Int, opacity: Float, radius: CGFloat) {
+        self.layer.shadowColor = color.cgColor
+        self.layer.shadowOffset = CGSize(width: width, height: height)
+        self.layer.shadowOpacity = opacity
+        self.layer.shadowRadius = radius
+    }
+}

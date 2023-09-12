@@ -8,69 +8,118 @@
 import UIKit
 import RxSwift
 
-class SpeechButtonView: UIButton {
+class SpeechButtonView: UIView {
+    
+    private lazy var button: UIButton = {
+        let button = UIButton()
+        button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
+        return button
+    }()
+    
+    private lazy var notificationLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        label.textColor = .black
+        label.setSpacingLabel(text: "탭해서 말하기", spacing: 8, labelColor: .black, weight: .medium, textSize: 14)
+        return label
+    }()
+    
+    private lazy var notificationImage: UIImageView = {
+        let imageView = UIImageView(image: UIImage(named: "SpeechNotification"))
+        imageView.transform = CGAffineTransform(scaleX: -1, y: -1)
+        imageView.contentMode = .scaleAspectFill
+        return imageView
+    }()
     
     let viewModel: SpeechViewModel
     private let disposeBag = DisposeBag()
     weak var delegate: SpeechButtonViewDelegate?
     
-
-    let imageConfig = UIImage.SymbolConfiguration(pointSize: 12, weight: .regular)
+    private var buttonWidthConstraint: NSLayoutConstraint?
+    private var buttonHeightConstraint: NSLayoutConstraint?
     
     init(viewModel: SpeechViewModel) {
         self.viewModel = viewModel
         super.init(frame: .zero)
-        
         bindViewModel()
-        addTarget(self, action: #selector(didTap), for: .touchUpInside)
+        configureButtonLabel()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func bindViewModel() {
-        viewModel.modeSubject
-            .subscribe(onNext: { [weak self] mode in
-                self?.setupSocialButton(mode)
-            })
-            .disposed(by: disposeBag)
+    private func configureButtonLabel() {
+        [notificationLabel, button, notificationImage].forEach {
+            self.addSubview($0)
+        }
+        notificationImage.centerX(inView: self)
+        notificationImage.anchor(top: self.safeAreaLayoutGuide.topAnchor, bottom: button.topAnchor, paddingBottom: 24)
+    
+        notificationLabel.anchor(top: self.safeAreaLayoutGuide.topAnchor, leading: self.safeAreaLayoutGuide.leadingAnchor, bottom: button.topAnchor, trailing: self.safeAreaLayoutGuide.trailingAnchor, paddingBottom: 5, height: 20)
+        
+        button.anchor(bottom: self.safeAreaLayoutGuide.bottomAnchor)
+        button.centerX(inView: self)
+        
+        buttonWidthConstraint = button.widthAnchor.constraint(equalToConstant: 360)
+        buttonWidthConstraint?.isActive = true
+        
+        buttonHeightConstraint = button.heightAnchor.constraint(equalToConstant: 70)
+        buttonHeightConstraint?.isActive = true
+        
     }
-
+    
     @objc private func didTap() {
         viewModel.switchMode()
         if viewModel.mode == .speech {
-            print(viewModel.mode)
             delegate?.didTapSpeechButton(.speech)
-            
         } else {
-            // 여기서 음성 인식 중지
             delegate?.didTapSpeechButton(.notspeech)
-            
         }
     }
-}
-
-extension SpeechButtonView {
-    func setupSocialButton(_ mode: SpeechMode) {
+    
+    private func bindViewModel() {
+        viewModel.modeSubject
+            .subscribe(onNext: { [weak self] mode in
+                self?.setupButtonAndLabel(mode)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func setupButtonAndLabel(_ mode: SpeechMode) {
+        
         var configuration = UIButton.Configuration.filled()
-        configuration.cornerStyle = .capsule
         configuration.imagePadding = 4
         
         switch mode {
         case .speech:
-            configuration.image = UIImage(systemName: "speaker.wave.3.fill", withConfiguration: imageConfig)?.withTintColor(.white, renderingMode: .alwaysOriginal)
+            configuration.cornerStyle = .small
+            if let originalImage = UIImage(named: "mic") {
+                configuration.image = UIImage(cgImage: originalImage.cgImage!, scale: originalImage.scale, orientation: .down)
+            }
+            configuration.baseBackgroundColor = .white
             
-            configuration.baseBackgroundColor = .bulletGray
+            buttonWidthConstraint?.constant = 57
+            buttonHeightConstraint?.constant = 87
+            notificationLabel.isHidden = true
+            notificationImage.isHidden = false
+            self.customShadow(color: .black, width: 0, height: 0, opacity: 0.0, radius: 0.0)
             
         case .notspeech:
-            configuration.image = UIImage(systemName: "speaker.slash.fill", withConfiguration: imageConfig)?.withTintColor(.bulletGray, renderingMode: .alwaysOriginal)
+            let imageConfig = UIImage.SymbolConfiguration(pointSize: 28, weight: .regular)
+            configuration.cornerStyle = .capsule
+            configuration.image = UIImage(systemName: "mic.fill", withConfiguration: imageConfig)?.withTintColor(.white, renderingMode: .alwaysOriginal)
+            configuration.baseBackgroundColor = .black
             
-            configuration.baseBackgroundColor = .detailBackgroundGrayButton
+            buttonWidthConstraint?.constant = 360
+            buttonHeightConstraint?.constant = 70
+            notificationLabel.isHidden = false
+            notificationImage.isHidden = true
+            self.customShadow(color: .black, width: 0, height: 0, opacity: 0.4, radius: 4.0)
         }
-
-        self.configuration = configuration
-        self.clipsToBounds = true
+        
+        button.configuration = configuration
+        button.clipsToBounds = true
     }
 }
 
