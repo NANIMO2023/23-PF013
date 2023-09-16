@@ -105,5 +105,7 @@ extension UIView {
         self.layer.shadowOffset = CGSize(width: width, height: height)
         self.layer.shadowOpacity = opacity
         self.layer.shadowRadius = radius
+        
+        self.layer.masksToBounds = false
     }
 }
