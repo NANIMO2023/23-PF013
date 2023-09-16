@@ -45,8 +45,13 @@
 		BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */; };
 		BF4D853C2A7250E50030C02D /* AudioEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D853B2A7250E50030C02D /* AudioEntity.swift */; };
 		BF4D853E2A728D4B0030C02D /* BulletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF4D853D2A728D4B0030C02D /* BulletView.swift */; };
+		BF597E412AB174EC00919EF0 /* DetailListViewComtroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF597E402AB174EC00919EF0 /* DetailListViewComtroller.swift */; };
+		BF597E432AB17D1900919EF0 /* DetailListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF597E422AB17D1900919EF0 /* DetailListTableViewCell.swift */; };
+		BF597E462AB2B91C00919EF0 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF597E452AB2B91C00919EF0 /* LocationManager.swift */; };
+		BF597E482AB2BA0C00919EF0 /* LocationManagerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF597E472AB2BA0C00919EF0 /* LocationManagerDelegate.swift */; };
 		BF5FFD6A2A7A2B46002B5F36 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FFD692A7A2B46002B5F36 /* RoundedButton.swift */; };
 		BF5FFD6C2A7A2ED2002B5F36 /* FoldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF5FFD6B2A7A2ED2002B5F36 /* FoldView.swift */; };
+		BF6D14352AB5940700278113 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6D14342AB5940700278113 /* BottomSheetView.swift */; };
 		BFE4F3E12A7A13A50053012E /* EmergencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE4F3E02A7A13A50053012E /* EmergencyViewController.swift */; };
 		BFE4F3E52A7A1C3F0053012E /* Preview.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE4F3E42A7A1C3F0053012E /* Preview.swift */; };
 /* End PBXBuildFile section */
@@ -104,8 +109,13 @@
 		BF4D85392A7250D00030C02D /* AudioEntityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEntityViewModel.swift; sourceTree = "<group>"; };
 		BF4D853B2A7250E50030C02D /* AudioEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioEntity.swift; sourceTree = "<group>"; };
 		BF4D853D2A728D4B0030C02D /* BulletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BulletView.swift; sourceTree = "<group>"; };
+		BF597E402AB174EC00919EF0 /* DetailListViewComtroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListViewComtroller.swift; sourceTree = "<group>"; };
+		BF597E422AB17D1900919EF0 /* DetailListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailListTableViewCell.swift; sourceTree = "<group>"; };
+		BF597E452AB2B91C00919EF0 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		BF597E472AB2BA0C00919EF0 /* LocationManagerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManagerDelegate.swift; sourceTree = "<group>"; };
 		BF5FFD692A7A2B46002B5F36 /* RoundedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		BF5FFD6B2A7A2ED2002B5F36 /* FoldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoldView.swift; sourceTree = "<group>"; };
+		BF6D14342AB5940700278113 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
 		BFE4F3E02A7A13A50053012E /* EmergencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmergencyViewController.swift; sourceTree = "<group>"; };
 		BFE4F3E42A7A1C3F0053012E /* Preview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preview.swift; sourceTree = "<group>"; };
 		BFEFAAA12A80CEB30038511C /* SoundManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundManager.swift; sourceTree = "<group>"; };
@@ -181,6 +191,7 @@
 		BF05C3232A5D63490086C4B8 /* Nanimo */ = {
 			isa = PBXGroup;
 			children = (
+				BF597E442AB2B91000919EF0 /* Location */,
 				BFEFAAA02A80CEA60038511C /* Audio */,
 				BF4D85382A7250BA0030C02D /* ViewModel */,
 				BF05C35E2A5E51470086C4B8 /* Extension */,
@@ -225,12 +236,15 @@
 		BF05C3582A5D65510086C4B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				BF6D14332AB593F700278113 /* BottomSheet */,
+				BF597E3F2AB174D400919EF0 /* DetailList */,
 				3F3624962A7D4FD60066E531 /* LaunchPad */,
 				BF4D85352A724FBD0030C02D /* AudioChart */,
 				BF05C3652A5E55220086C4B8 /* Main */,
 				BF4D853D2A728D4B0030C02D /* BulletView.swift */,
 				BF5FFD692A7A2B46002B5F36 /* RoundedButton.swift */,
 				BF5FFD6B2A7A2ED2002B5F36 /* FoldView.swift */,
+				BF6D14342AB5940700278113 /* BottomSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,6 +303,31 @@
 				3F7DBD092A86226C00410404 /* ChattingViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		BF597E3F2AB174D400919EF0 /* DetailList */ = {
+			isa = PBXGroup;
+			children = (
+				BF597E402AB174EC00919EF0 /* DetailListViewComtroller.swift */,
+				BF597E422AB17D1900919EF0 /* DetailListTableViewCell.swift */,
+			);
+			path = DetailList;
+			sourceTree = "<group>";
+		};
+		BF597E442AB2B91000919EF0 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				BF597E452AB2B91C00919EF0 /* LocationManager.swift */,
+				BF597E472AB2BA0C00919EF0 /* LocationManagerDelegate.swift */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		BF6D14332AB593F700278113 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 		BFEFAAA02A80CEA60038511C /* Audio */ = {
@@ -469,15 +508,20 @@
 				BFE4F3E52A7A1C3F0053012E /* Preview.swift in Sources */,
 				BF4D85342A72282F0030C02D /* Label+Extension.swift in Sources */,
 				3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */,
+				BF597E432AB17D1900919EF0 /* DetailListTableViewCell.swift in Sources */,
 				BF05C3642A5E520F0086C4B8 /* Literal.swift in Sources */,
 				BF4D853A2A7250D00030C02D /* AudioEntityViewModel.swift in Sources */,
+				BF6D14352AB5940700278113 /* BottomSheetView.swift in Sources */,
 				3F3624992A7D50730066E531 /* LaunchPadTappedViewController.swift in Sources */,
 				3F61F9FE2AAEF59400B41AEB /* ReversedChattingTableViewCell.swift in Sources */,
+				BF597E462AB2B91C00919EF0 /* LocationManager.swift in Sources */,
 				BF3679542A826AA50002598A /* SoundManager.swift in Sources */,
 				3F72E80C2A8FA4C6008E2579 /* SpeechRecognitionManager.swift in Sources */,
 				BF3679582A826ADE0002598A /* ChattingTableView.swift in Sources */,
 				BF5FFD6A2A7A2B46002B5F36 /* RoundedButton.swift in Sources */,
+				BF597E482AB2BA0C00919EF0 /* LocationManagerDelegate.swift in Sources */,
 				BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */,
+				BF597E412AB174EC00919EF0 /* DetailListViewComtroller.swift in Sources */,
 				BF3679532A826AA10002598A /* IdentifierTranslationHelper.swift in Sources */,
 				BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */,
 				3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */,
