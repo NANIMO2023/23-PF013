@@ -15,11 +15,11 @@ class ReversedChattingTableViewCell: UITableViewCell {
     
     static let reverseChattingCellId = "ReverseChattingCellId"
     
-    var viewModel: ChattingViewModel? {
-        didSet {
-            bindViewModel()
-        }
-    }
+//    var viewModel: ChattingViewModel? {
+//        didSet {
+//            bindViewModel()
+//        }
+//    }
     
     private lazy var shadowView: UIView = {
         let view = UIView()
@@ -114,12 +114,47 @@ class ReversedChattingTableViewCell: UITableViewCell {
         chattingBackgroundHeight = CGFloat(Int(expectedBackgroundHeight + 20))
     }
     
-    private func bindViewModel() {
-        viewModel?.isInputCompletedRelay
-            .bind(onNext: { [weak self] completed in
-                self?.chattingBackgroundView.backgroundColor = completed ? .black : .white
-                self?.chattingLabel.textColor = completed ? .white : .black
-            })
-            .disposed(by: disposeBag)
+//    private func bindViewModel() {
+//        viewModel?.isInputCompletedRelay
+//            .asObservable()
+//            .distinctUntilChanged() // 이전 값과 동일한 값의 연속적인 이벤트는 필터링합니다.
+////            .filter { $0 == true }  // true 값만을 필터링합니다.
+//            .subscribe(onNext: { [weak self] result in
+//                self?.chattingBackgroundView.backgroundColor = result ? .black : .white
+//                self?.chattingLabel.textColor = result ? .white : .black
+//            })
+////            .bind(onNext: { [weak self] completed in
+////                print("TableViewCell : ", completed)
+////                self?.chattingBackgroundView.backgroundColor = completed ? .black : .white
+////                self?.chattingLabel.textColor = completed ? .white : .black
+////            })
+////            .disposed(by: disposeBag)
+//    }
+    
+    func updateDesign(isFinalized: Bool) {
+        micImageView.isHidden = true
+        let padding: CGFloat = 24 // 양쪽 패딩 합
+        let maxWidth: CGFloat = UIScreen.main.bounds.width - 24
+        let width = chattingLabel.intrinsicContentSize.width + padding
+        
+        chattingBackgroundWidthConstraint?.constant = min(width, maxWidth)
+        
+        chattingLabel.anchor(top: chattingBackgroundView.topAnchor, leading: chattingBackgroundView.leadingAnchor, bottom: chattingBackgroundView.bottomAnchor, trailing: chattingBackgroundView.trailingAnchor, paddingTop: 8, paddingLeading: 12, paddingBottom: 8, paddingTrailing: 12)
+        
+        self.layoutIfNeeded()
+        
+        
+        self.chattingBackgroundView.backgroundColor = isFinalized ? .black : .white
+        self.chattingLabel.textColor = isFinalized ? .white : .black
+        
+        
+        
+//        if isFinalized {
+//            // 디자인 업데이트 로직
+//
+//        } else {
+//            // 다른 디자인 적용 로직
+//
+//        }
     }
 }

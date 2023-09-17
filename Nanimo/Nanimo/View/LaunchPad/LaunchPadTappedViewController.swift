@@ -34,7 +34,7 @@ class LaunchPadTappedViewController: UIViewController {
     private var keyboardHeight: CGFloat = 0.0
     private var speechButtonTextFieldViewTopConstraint: NSLayoutConstraint!
     
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
     
     
     // MARK: - Life Cycles
@@ -52,7 +52,7 @@ class LaunchPadTappedViewController: UIViewController {
         sentenceTableView.isHidden = true
 //        lastMessageLabel.isHidden = true
         
-//        speechButtonTextFieldView.speechButton.delegate = self
+        speechButtonView.delegate = self
         
         bindViewModel()
         speechNotificationView.bind()
@@ -71,6 +71,13 @@ class LaunchPadTappedViewController: UIViewController {
         /// 키보드가 올라가고 내려갈때 동작하는 메서드 설정
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        SpeechRecognitionManager.shared.isFinalSubject
+            .subscribe(onNext: { [weak self] result in
+                self?.chattingViewModel.isInputCompletedRelay.accept(result)
+                print("isInputCompletedRelay 에 전달: ", result)
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -87,6 +94,7 @@ class LaunchPadTappedViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
+
     }
     
     // MARK: - methods for layouts
@@ -109,9 +117,9 @@ class LaunchPadTappedViewController: UIViewController {
 
         // 인식된 텍스트 받아오기
         SpeechRecognitionManager.shared.recognition
-            .subscribe(onNext: { [weak self] text in
-                self?.chattingViewModel.addIncomingMessageTable(text)
-                print("Recognized text: \(text)")
+            .subscribe(onNext: { [weak self] recognitionResult in
+                self?.chattingViewModel.updateCurrentCellWithMessage(recognitionResult.text)
+                print("Recognized text: \(recognitionResult.text)")
                 // TODO: 화면에 텍스트 표시 또는 기타 처리
             })
             .disposed(by: disposeBag)
@@ -249,6 +257,8 @@ extension LaunchPadTappedViewController: SpeechButtonViewDelegate {
         switch mode {
         case .speech:
             self.startRecognition()
+            guard let index = chattingViewModel.currentEditingIndex else { return }
+            chattingViewModel.currentEditingIndex = index + 1
         case .notspeech:
             SpeechRecognitionManager.shared.stopRecording()
         }
