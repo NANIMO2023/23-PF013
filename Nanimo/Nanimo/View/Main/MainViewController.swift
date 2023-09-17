@@ -124,14 +124,27 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         resultsObserver.observePredictions()
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] prediction in
+                
                 if let thisIdentifier = self?.resultsObserver.identifierHelper.identifier[prediction.identifier], thisIdentifier != self?.previousPrediction {
+
                     self?.soundNotificationLabel.fadeOut()
-                    self?.soundNotificationLabel.text = "\(thisIdentifier) 소리가 나고 있어요"
+                    print("thisIdentifier: \(thisIdentifier)")
+                    if self?.identifierTranslationHelper.emergencyIdentifierKorean.contains(thisIdentifier) == true {
+
+                        let emergencyViewController = EmergencyViewController()
+                        emergencyViewController.emergencyIdentifier = thisIdentifier
+                        
+                        self?.present(emergencyViewController, animated: true)
+                    } else {
+                        self?.soundNotificationLabel.text = "\(thisIdentifier) 소리가 나고 있어요"
+                    }
                     self?.soundNotificationLabel.fadeIn()
                     self?.soundNotificationLabel.adjustsFontSizeToFitWidth = true
                     self?.previousPrediction = thisIdentifier
+                    
                 }
             })
+                
             .disposed(by: disposeBag)
     }
     
