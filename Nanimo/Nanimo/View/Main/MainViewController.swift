@@ -32,6 +32,7 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
     private let minuteLabel = UILabel()
     private let soundNotificationLabel = UILabel()
     private let todayAudioLabel = UILabel()
+    private let tapToTalkView = BottomSheetView()
     
     let soundVisualizerView: LottieAnimationView = .init(name: "animation")
     
@@ -52,8 +53,14 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         button.setWidth(width: 50)
         button.layer.cornerRadius = 12
         button.clipsToBounds = true
+        button.addTarget(self, action: #selector(tapDetailButton(_:)), for: .touchUpInside)
         return button
     }()
+    
+    @objc func tapDetailButton(_ sender: UIButton) {
+        let detailListViewController = DetailListViewController()
+        navigationController?.pushViewController(detailListViewController, animated: true)
+    }
     
     private lazy var audioStackView: UIStackView = {
         var bulletView1 = BulletView()
@@ -72,6 +79,7 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         stackView.distribution = .equalSpacing
         stackView.alignment = .leading
         stackView.axis = .vertical
+        stackView.backgroundColor = .clear
         stackView.spacing = 4
         return stackView
     }()
@@ -84,12 +92,18 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         resultsObserver.classifierDelegate = self
         
         makeHostingViewToUIView()
+
         [minuteLabel,soundVisualizerView, soundNotificationLabel].forEach { backgroundGradientBlockImage.addSubview($0) }
-        [backgroundGradientBlockImage, todayAudioLabel, detailButton, audioStackView].forEach { view.addSubview($0) }
+        [backgroundGradientBlockImage, todayAudioLabel, detailButton, audioStackView, tapToTalkView].forEach { view.addSubview($0) }
+        
         setLabel()
         configureLayout()
+        recognizeGesture()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         soundManager.startAudioEngine()
-        
         // 소리 분석 및 현재 오디오의 레벨에 따라 visualizer 제어하는 로직
         soundManager.analyzeAudioAndGetAmplitude()
             .map { amplitude in
@@ -158,6 +172,9 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         detailButton.anchor(top: dailyAudioChartHostingView.view.bottomAnchor, trailing: view.trailingAnchor, paddingTop: 25, paddingTrailing: 19)
         
         audioStackView.anchor(top: todayAudioLabel.bottomAnchor, leading: view.leadingAnchor, trailing: view.trailingAnchor, paddingTop: 5, paddingLeading: 18)
+        
+        tapToTalkView.setHeight(height: 102)
+        tapToTalkView.anchor(top: audioStackView.bottomAnchor, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, paddingTop: 30)
     }
 }
 
@@ -177,5 +194,22 @@ extension MainViewController {
     func configureAnimation() {
         soundVisualizerView.loopMode = .loop
         soundVisualizerView.contentMode = .scaleAspectFill
+    }
+}
+
+// MARK: - Control Tap Gestures
+
+extension MainViewController {
+    
+    private func recognizeGesture() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(didTapTalkView(_:)))
+        tapToTalkView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc func didTapTalkView(_ sender: UITapGestureRecognizer) {
+        let launchPadViewController = LaunchPadTappedViewController()
+        self.present(launchPadViewController, animated: true) {
+            self.soundManager.audioEngine.pause()
+        }
     }
 }
