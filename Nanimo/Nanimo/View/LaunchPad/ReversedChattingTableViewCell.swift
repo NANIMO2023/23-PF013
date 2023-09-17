@@ -82,15 +82,15 @@ class ReversedChattingTableViewCell: UITableViewCell {
         self.addSubview(shadowView)
         shadowView.addSubview(chattingBackgroundView)
         chattingBackgroundView.addSubview(chattingLabel)
-        chattingBackgroundView.addSubview(micImage)
+        chattingBackgroundView.addSubview(micImageView)
         
         shadowView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, paddingTop: 10, paddingLeading: 12, paddingBottom: 10, paddingTrailing: 12)
             
         chattingBackgroundView.anchor(top: shadowView.topAnchor, leading: shadowView.leadingAnchor, bottom: shadowView.bottomAnchor, trailing: shadowView.trailingAnchor)
         
-        micImage.anchor(top: chattingBackgroundView.topAnchor, leading: chattingBackgroundView.leadingAnchor, bottom: chattingBackgroundView.bottomAnchor, trailing: chattingLabel.leadingAnchor, paddingTop: 8, paddingLeading: 12, paddingBottom: 8, paddingTrailing: 8, width: 21, height: 21)
+        micImageView.anchor(top: chattingBackgroundView.topAnchor, leading: chattingBackgroundView.leadingAnchor, bottom: chattingBackgroundView.bottomAnchor, trailing: chattingLabel.leadingAnchor, paddingTop: 8, paddingLeading: 12, paddingBottom: 8, paddingTrailing: 8, width: 21, height: 21)
         
-        chattingLabel.anchor(top: chattingBackgroundView.topAnchor, leading: micImage.trailingAnchor, bottom: chattingBackgroundView.bottomAnchor, trailing: chattingBackgroundView.trailingAnchor, paddingTop: 8, paddingBottom: 8, paddingTrailing: 12)
+        chattingLabel.anchor(top: chattingBackgroundView.topAnchor, leading: micImageView.trailingAnchor, bottom: chattingBackgroundView.bottomAnchor, trailing: chattingBackgroundView.trailingAnchor, paddingTop: 8, paddingBottom: 8, paddingTrailing: 12)
         
         chattingBackgroundWidthConstraint = chattingBackgroundView.widthAnchor.constraint(equalToConstant: 0)  // 초기값 0으로 설정
         chattingBackgroundWidthConstraint?.isActive = true
@@ -103,7 +103,7 @@ class ReversedChattingTableViewCell: UITableViewCell {
         let maxWidth: CGFloat = UIScreen.main.bounds.width - 24
         chattingLabel.preferredMaxLayoutWidth = UIScreen.main.bounds.width - 24
 
-        let width = chattingLabel.intrinsicContentSize.width + padding + micImage.intrinsicContentSize.width + 12
+        let width = chattingLabel.intrinsicContentSize.width + padding + micImageView.intrinsicContentSize.width + 12
         let labelHeight = chattingLabel.intrinsicContentSize.height
         let totalPadding: CGFloat = 20  // 상하 여백의 합
         let expectedBackgroundHeight = labelHeight + totalPadding

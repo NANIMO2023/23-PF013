@@ -29,52 +29,6 @@ class EmergencyViewController: UIViewController {
         configureLayout()
     }
     
-    /*
-    private func createPulse() {
- 
-        for _ in 0...3 {
-            let circularPath = UIBezierPath(arcCenter: .zero, radius: screenWidth / 2.0, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
-            
-            let pulseLayer = CAShapeLayer()
-
-            pulseLayer.path = circularPath.cgPath
-            pulseLayer.lineWidth = 8.0
-            pulseLayer.fillColor = UIColor.clear.cgColor
-            pulseLayer.lineCap = CAShapeLayerLineCap.round
-            pulseLayer.opacity = 0.7
-            
-            pulseLayer.position = CGPoint(x: screenWidth / 2.0, y: screenHeight / 2.0)
-            
-            // TODO: CALayer filter 적용 해결하기
-            
-            if let filter = CIFilter(name:"CIGaussianBlur") {
-                filter.name = "myFilter"
-                pulseLayer.filters = [filter]
-                pulseLayer.setValue(1,
-                               forKeyPath: "backgroundFilters.myFilter.inputRadius")
-            }
-            backgroundImage.layer.addSublayer(pulseLayer)
-            
-            pulseLayers.append(pulseLayer)
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-            self.animatePulse(index: 0)
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                self.animatePulse(index: 1)
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.6) {
-                    self.animatePulse(index: 2)
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
-                        self.animatePulse(index: 3)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-                        }
-                    }
-                }
-            }
-        }
-    }
-     */
-    
     private func createPulse() async {
         for _ in 0...4 {
             let circularPath = UIBezierPath(arcCenter: .zero, radius: screenWidth / 2.0, startAngle: 0, endAngle: 2 * .pi, clockwise: true)
