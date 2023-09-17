@@ -8,7 +8,9 @@
 import Foundation
 
 class IdentifierTranslationHelper {
+    
     var identifier = Dictionary<String, String>()
+    let emergencyIdentifierKorean = ["사이렌", "소리치는", "터지는", "총", "화산폭발", "유리창 깨지는", "자동차 경적", "차 지나가는 ", "소리지르는 ", "불", "비명", "총", "끓는", "우는 아이 ", "충돌하는 ", "소리지르는 아이 ", "으르릉거리는 개 ", "개 짖는 "]
     
     init() {
         identifier["clock"] = "시계"
