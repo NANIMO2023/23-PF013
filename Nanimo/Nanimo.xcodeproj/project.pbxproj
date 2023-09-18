@@ -236,7 +236,6 @@
 		BF05C3582A5D65510086C4B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BF6D14332AB593F700278113 /* BottomSheet */,
 				BF597E3F2AB174D400919EF0 /* DetailList */,
 				3F3624962A7D4FD60066E531 /* LaunchPad */,
 				BF4D85352A724FBD0030C02D /* AudioChart */,
@@ -321,13 +320,6 @@
 				BF597E472AB2BA0C00919EF0 /* LocationManagerDelegate.swift */,
 			);
 			path = Location;
-			sourceTree = "<group>";
-		};
-		BF6D14332AB593F700278113 /* BottomSheet */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 		BFEFAAA02A80CEA60038511C /* Audio */ = {
@@ -706,6 +698,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -736,6 +729,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -16,16 +16,33 @@ class EmergencyViewController: UIViewController {
     
     var pulseLayers = [CAShapeLayer]()
     private var backgroundImage = UIImageView(image: UIImage(named: "emergency-background.png"))
-    private var notifyButton = UIButton()
-    private var foldView = FoldView()
+    
+    private var notifyButton: UIButton = {
+        let button = UIButton()
+        button.makeRounded(radius: 35)
+        button.createButton(title: "주변에 알리기", titleSize: 28, titleColor: .white, backgroundColor: .black)
+        button.layer.shadowRadius = 20
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.addTarget(self, action: #selector(tapNotifyButton(_:)), for: .touchUpInside)
+        button.layer.zPosition = 1.0
+        button.isEnabled = true
+        return button
+    }()
+    
+//    private var foldView = FoldView()
+    var emergencyIdentifier: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        [backgroundImage,minuteLabel, soundNotificationLabel, notifyButton, foldView].forEach { view.addSubview($0) }
-        setLabel()
-        setButton()
         Task { await createPulse() }
+        
+        view.backgroundColor = .white
+        view.addSubview(backgroundImage)
+        
+        [minuteLabel, soundNotificationLabel, notifyButton].forEach { backgroundImage.addSubview($0) }
+        
+        setLabel()
+//        setButton()
         configureLayout()
     }
     
@@ -43,14 +60,15 @@ class EmergencyViewController: UIViewController {
             
             pulseLayer.position = CGPoint(x: screenWidth / 2.0, y: screenHeight / 2.0)
             
-
+            /*
             if let filter = CIFilter(name: "CIGaussianBlur") {
                 filter.name = "myFilter"
                 pulseLayer.filters = [filter]
                 pulseLayer.setValue(1, forKeyPath: "backgroundFilters.myFilter.inputRadius")
             }
+             */
             
-            backgroundImage.layer.addSublayer(pulseLayer)
+            view.layer.addSublayer(pulseLayer)
             pulseLayers.append(pulseLayer)
         }
         Task {
@@ -106,22 +124,36 @@ class EmergencyViewController: UIViewController {
         notifyButton.centerX(inView: backgroundImage)
         notifyButton.setHeight(height: 68)
         notifyButton.setWidth(width: 197)
-        notifyButton.anchor(bottom: view.bottomAnchor, paddingBottom: 200)
+        notifyButton.anchor(bottom: backgroundImage.bottomAnchor, paddingBottom: 200)
         
+        /*
         foldView.centerX(inView: backgroundImage)
         foldView.setHeight(height: 51)
         foldView.anchor(top: notifyButton.bottomAnchor, bottom: view.bottomAnchor, paddingTop: 32, paddingBottom: 140)
+         */
     }
     
     private func setLabel() {
         minuteLabel.setLabel(labelText: " 1분 전부터 ", backgroundColor: .black, weight: .medium, textSize: 16, labelColor: .white)
-        soundNotificationLabel.setLabel(labelText: "사이렌이 울리고 있어요", backgroundColor: .clear, weight: .bold, textSize: 32, labelColor: .white)
+        soundNotificationLabel.setLabel(labelText: "\(emergencyIdentifier) 소리가 나고있어요", backgroundColor: .clear, weight: .bold, textSize: 32, labelColor: .white)
     }
-    
+    /*
     private func setButton() {
         notifyButton.makeRounded(radius: 35)
         notifyButton.createButton(title: "주변에 알리기", titleSize: 28, titleColor: .white, backgroundColor: .black)
         notifyButton.layer.shadowRadius = 20
         notifyButton.layer.shadowColor = UIColor.black.cgColor
+        notifyButton.addTarget(self, action: #selector(tapNotifyButton(_ :)), for: .touchUpInside)
+        notifyButton.isUserInteractionEnabled = true
+        notifyButton.layer.zPosition = 1.0
+    }
+*/
+    @objc func tapNotifyButton(_ sender: UIButton) {
+        print("연락처 실행")
+        /*
+        if let url = URL(string: "tel://") {
+            UIApplication.shared.open(url)
+        }
+         */
     }
 }
