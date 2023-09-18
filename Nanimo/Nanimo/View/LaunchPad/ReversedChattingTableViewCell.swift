@@ -143,18 +143,7 @@ class ReversedChattingTableViewCell: UITableViewCell {
         
         self.layoutIfNeeded()
         
-        
         self.chattingBackgroundView.backgroundColor = isFinalized ? .black : .white
         self.chattingLabel.textColor = isFinalized ? .white : .black
-        
-        
-        
-//        if isFinalized {
-//            // 디자인 업데이트 로직
-//
-//        } else {
-//            // 다른 디자인 적용 로직
-//
-//        }
     }
 }
