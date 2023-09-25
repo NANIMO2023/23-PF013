@@ -23,8 +23,9 @@ struct AudioPointMarkView: View {
                         
                     )
                     .cornerRadius(20)
-                    .foregroundStyle(Color(uiColor: .customChartGreen))
-                    .opacity(0.5)
+//                    .foregroundStyle(Color(uiColor: .customChartGreen))
+                    .foregroundStyle(audio.backgroundColor)
+//                    .opacity(0.5)
                     
                 }
             }

@@ -17,6 +17,7 @@
 		3F61FA022AB8075A00B41AEB /* LastMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61FA012AB8075A00B41AEB /* LastMessageView.swift */; };
 		3F72E80C2A8FA4C6008E2579 /* SpeechRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72E80B2A8FA4C6008E2579 /* SpeechRecognitionManager.swift */; };
 		3F7DBD0A2A86226C00410404 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DBD092A86226C00410404 /* ChattingViewModel.swift */; };
+		3FAF12B62AB82193005AC476 /* PlaceHolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FAF12B52AB82193005AC476 /* PlaceHolderView.swift */; };
 		BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3242A5D63490086C4B8 /* AppDelegate.swift */; };
 		BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */; };
 		BF05C3312A5D634A0086C4B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF05C3302A5D634A0086C4B8 /* Assets.xcassets */; };
@@ -89,6 +90,7 @@
 		3F61FA012AB8075A00B41AEB /* LastMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastMessageView.swift; sourceTree = "<group>"; };
 		3F72E80B2A8FA4C6008E2579 /* SpeechRecognitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionManager.swift; sourceTree = "<group>"; };
 		3F7DBD092A86226C00410404 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
+		3FAF12B52AB82193005AC476 /* PlaceHolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolderView.swift; sourceTree = "<group>"; };
 		BF05C3212A5D63490086C4B8 /* Nanimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nanimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF05C3242A5D63490086C4B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BF05C3262A5D63490086C4B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */,
 				3F61F9FD2AAEF59400B41AEB /* ReversedChattingTableViewCell.swift */,
 				3F61FA012AB8075A00B41AEB /* LastMessageView.swift */,
+				3FAF12B52AB82193005AC476 /* PlaceHolderView.swift */,
 			);
 			path = LaunchPad;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */,
 				BF05C3622A5E51750086C4B8 /* Color+Extension.swift in Sources */,
 				BF4D853C2A7250E50030C02D /* AudioEntity.swift in Sources */,
+				3FAF12B62AB82193005AC476 /* PlaceHolderView.swift in Sources */,
 				BF3679522A826A970002598A /* ResultsObserver.swift in Sources */,
 				BF05C3602A5E515A0086C4B8 /* View+Extension.swift in Sources */,
 				BF5FFD6C2A7A2ED2002B5F36 /* FoldView.swift in Sources */,

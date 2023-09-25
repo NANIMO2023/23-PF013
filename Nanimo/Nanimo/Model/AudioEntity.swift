@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct AudioEntity: Identifiable {
     var id = UUID().uuidString
@@ -20,4 +21,6 @@ struct AudioEntity: Identifiable {
     let endHour: Int
     let endMinute: Int
     let endSecond: Int
+    
+    let backgroundColor: Color
 }

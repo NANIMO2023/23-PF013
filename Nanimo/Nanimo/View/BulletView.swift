@@ -23,9 +23,9 @@ class BulletView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func setLabels(soundName: String, soundNumber: Int) {
+    func setLabels(soundName: String, soundNumber: Int, backgroundColor: UIColor ,labelColor: UIColor) {
         
-        audioLabel.setLabel(labelText: " \(soundName) ", backgroundColor: .customBackgroundGreen, weight: .regular, textSize: 18, labelColor: .customGreen)
+        audioLabel.setLabel(labelText: " \(soundName) ", backgroundColor: backgroundColor, weight: .regular, textSize: 18, labelColor: labelColor)
         audioLabel.backgroundColor?.withAlphaComponent(0.5)
         numberLabel.setLabel(labelText: " X \(soundNumber)회", backgroundColor: .clear, weight: .regular, textSize: 18, labelColor: .detailTextGrayButton)
     }

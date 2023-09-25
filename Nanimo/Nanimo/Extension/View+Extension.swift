@@ -109,3 +109,36 @@ extension UIView {
         self.layer.masksToBounds = false
     }
 }
+
+// MARK: - Blur
+
+extension UIView {
+
+    func addBlurEffect(style: UIBlurEffect.Style = .light) {
+        // 블러 효과가 이미 적용된 경우 return
+        if let _ = self.subviews.first(where: { $0 is UIVisualEffectView }) {
+            return
+        }
+        
+        // 블러 효과와 뷰 생성
+        let blurEffect = UIBlurEffect(style: style)
+        let blurEffectView = UIVisualEffectView(effect: blurEffect)
+        
+        blurEffectView.frame = self.bounds
+        
+        // 블러 뷰의 오토 레이아웃 설정
+        blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        
+        self.addSubview(blurEffectView)
+    }
+    
+    func removeBlurEffect() {
+        // UIVisualEffectView 찾아서 제거
+        for subview in self.subviews {
+            if subview is UIVisualEffectView {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+}
+

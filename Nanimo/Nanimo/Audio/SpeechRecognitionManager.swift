@@ -125,7 +125,10 @@ class SpeechRecognitionManager: NSObject, SFSpeechRecognizerDelegate {
                         
                         let recognitionResult = RecognitionResult(text: result.bestTranscription.formattedString, isFinal: result.isFinal)
 
-                        self.recognitionSubject.onNext(recognitionResult)
+                        if result.bestTranscription.formattedString.count > 0 {
+                            self.recognitionSubject.onNext(recognitionResult)
+                        }
+                        
                         print(result.bestTranscription.formattedString)
                         
 //                        self.latestTranscription = result.bestTranscription.formattedString

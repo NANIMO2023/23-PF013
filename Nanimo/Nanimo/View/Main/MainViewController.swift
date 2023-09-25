@@ -71,10 +71,10 @@ class MainViewController: UIViewController, SoundClassifierDelegate {
         let stackView = UIStackView(arrangedSubviews: [bulletView1, bulletView2, bulletView3, bulletView4])
         
         // TODO: 오디오 데이터 들어오면 소리 종류 중 가장 많은 소리가 난 상위 4개를 띄우도록 구현 예정
-        bulletView1.setLabels(soundName: "자동차 지나가는 소리", soundNumber: 8)
-        bulletView2.setLabels(soundName: "물건 떨어지는 소리", soundNumber: 6)
-        bulletView3.setLabels(soundName: "개 짖는 소리", soundNumber: 2)
-        bulletView4.setLabels(soundName: "아기 울음 소리", soundNumber: 1)
+        bulletView1.setLabels(soundName: "자동차 지나가는 소리", soundNumber: 8, backgroundColor: UIColor(red: 255/255.0, green: 184/255.0, blue: 0, alpha: 0.25), labelColor: UIColor(rgb: 0xFA9928))
+        bulletView2.setLabels(soundName: "물건 떨어지는 소리", soundNumber: 6, backgroundColor: UIColor(red: 62/255.0, green: 162/255.0, blue: 255/255.0, alpha: 0.25), labelColor: UIColor(rgb: 0x007AFF))
+        bulletView3.setLabels(soundName: "개 짖는 소리", soundNumber: 2, backgroundColor: UIColor(red: 196/255.0, green: 241/255.0, blue: 169/255.0, alpha: 0.5), labelColor: UIColor(rgb: 0x47B802))
+        bulletView4.setLabels(soundName: "아기 울음 소리", soundNumber: 1, backgroundColor: UIColor(red: 250/255.0, green: 90/255.0, blue: 40/255.0, alpha: 0.16), labelColor: UIColor(rgb: 0xF85757))
         
         stackView.distribution = .equalSpacing
         stackView.alignment = .leading

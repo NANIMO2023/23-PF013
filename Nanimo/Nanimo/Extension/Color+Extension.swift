@@ -6,6 +6,7 @@
 //
 
 import UIKit.UIColor
+import SwiftUI
 
 extension UIColor {
     convenience init(red: Int, green: Int, blue: Int) {
@@ -53,5 +54,31 @@ extension UIColor {
     
     static var chattingCellBackgroundGray: UIColor {
         return UIColor(rgb: 0xF6F6F5)
+    }
+    
+    static var placeHolderGray: UIColor {
+        return UIColor(rgb: 0x979797)
+    }
+}
+
+extension Color {
+    static var carColor: Color {
+        return Color(red: 255/255.0, green: 184/255.0, blue: 0.0)
+//        return Color(red: 255/255.0, green: 184/255.0, blue: 0.0, opacity: 0.25)
+    }
+    
+    static var thingColor: Color {
+        return Color(red: 62/255.0, green: 162/255.0, blue: 255/255.0)
+//        return Color(red: 62/255.0, green: 162/255.0, blue: 255/255.0, opacity: 0.25)
+    }
+    
+    static var dogColor: Color {
+        return Color(red: 196/255.0, green: 241/255.0, blue: 169/255.0)
+//        return Color(red: 250/255.0, green: 90/255.0, blue: 90/255.0, opacity: 0.16)
+    }
+    
+    static var babyColor: Color {
+        return Color(red: 250/255.0, green: 90/255.0, blue: 40/255.0)
+//        return Color(red: 250/255.0, green: 90/255.0, blue: 40/255.0, opacity: 0.16)
     }
 }

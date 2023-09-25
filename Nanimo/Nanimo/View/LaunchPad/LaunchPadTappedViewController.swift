@@ -28,6 +28,8 @@ class LaunchPadTappedViewController: UIViewController {
         return view
     }()
     
+    private lazy var placeHolderView = PlaceHolderView()
+    
     private var keyboardHeight: CGFloat = 0.0
     private var speechButtonTextFieldViewTopConstraint: NSLayoutConstraint!
     
@@ -69,6 +71,18 @@ class LaunchPadTappedViewController: UIViewController {
             .subscribe(onNext: { [weak self] result in
                 self?.chattingViewModel.isInputCompletedRelay.accept(result)
                 print("isInputCompletedRelay 에 전달: ", result)
+            })
+            .disposed(by: disposeBag)
+        
+        chattingViewModel.myMessages
+            .subscribe(onNext: { [weak self] result in
+                if result.count > 0 {
+                    self?.placeHolderView.isHidden = true
+                } else {
+                    self?.placeHolderView.isHidden = false
+                }
+                
+                self?.view.layoutIfNeeded()
             })
             .disposed(by: disposeBag)
     }
@@ -119,7 +133,7 @@ class LaunchPadTappedViewController: UIViewController {
     }
     
     private func addSubviews() {
-        [reverseChattingTableView, chattingTableView, speechTextFieldView, sentenceTableView, emptyView, speechButtonView, lastMessageView].forEach { view.addSubview($0) }
+        [reverseChattingTableView, chattingTableView, speechTextFieldView, sentenceTableView, emptyView, speechButtonView, lastMessageView, placeHolderView].forEach { view.addSubview($0) }
     }
     
     private func configureConstraints() {
@@ -135,6 +149,9 @@ class LaunchPadTappedViewController: UIViewController {
         
         speechButtonView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 17, paddingLeading: 15, paddingTrailing: 15)
         speechButtonView.transform = CGAffineTransform(scaleX: -1, y: -1)
+        
+        placeHolderView.anchor(top: view.safeAreaLayoutGuide.topAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: emptyView.topAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, paddingTop: 183, paddingLeading: 66, paddingBottom: 23, paddingTrailing: 21)
+        placeHolderView.transform = CGAffineTransform(scaleX: -1, y: -1)
         
     }
     
@@ -172,6 +189,7 @@ class LaunchPadTappedViewController: UIViewController {
 
                 viewModel.isKeyboardVisible.accept(true)
                 
+                placeHolderView.isHidden = true
                 view.layoutIfNeeded()
             }
         }
@@ -193,6 +211,7 @@ class LaunchPadTappedViewController: UIViewController {
     func hideSubView(notification: Bool, sentenceLabel: Bool, emptyChatting: Bool) {
         sentenceTableView.isHidden = sentenceLabel
         lastMessageView.isHidden = sentenceLabel
+//        placeHolderView.isHidden = emptyChatting
         emptyView.isHidden = emptyChatting
         chattingTableView.isHidden = emptyChatting
         reverseChattingTableView.isHidden = emptyChatting
@@ -234,10 +253,13 @@ extension LaunchPadTappedViewController: SpeechButtonViewDelegate {
         print("현재 모드 : \(mode)")
         switch mode {
         case .speech:
+//            placeHolderView.addBlurEffect(style: .dark)
             self.startRecognition()
             guard let index = chattingViewModel.currentEditingIndex else { return }
             chattingViewModel.currentEditingIndex = index + 1
         case .notspeech:
+//            placeHolderView.removeBlurEffect()
+            
             SpeechRecognitionManager.shared.stopRecording()
         }
     }
