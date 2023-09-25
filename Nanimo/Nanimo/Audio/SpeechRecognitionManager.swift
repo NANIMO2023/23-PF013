@@ -12,6 +12,11 @@ import RxSwift
 import RxCocoa
 import Accelerate
 
+struct RecognitionResult {
+    var text: String
+    var isFinal: Bool
+}
+
 class SpeechRecognitionManager: NSObject, SFSpeechRecognizerDelegate {
 
     // MARK: - Properties
@@ -28,18 +33,27 @@ class SpeechRecognitionManager: NSObject, SFSpeechRecognizerDelegate {
         return audioEngine.isRunning
     }
     
-    private var previousTranscription: String = ""
+    private var tempMessage: String? = nil
     private var isVoiceDetected: Bool = false
+    
+    private var isFinal = false {
+        didSet {
+            if oldValue != isFinal {
+                isFinalSubject.onNext(isFinal)
+                print("isFinal 값 전달: ", isFinal)
+            }
+        }
+    }
     
     // MARK: - Rx Properties
 
-    private var recognitionSubject = PublishSubject<String>()
-
-    var recognition: Observable<String> {
+    private var recognitionSubject = PublishSubject<RecognitionResult>()
+    let isFinalSubject = PublishSubject<Bool>() // BehaviorSubject<Bool>(value: false)
+    var recognition: Observable<RecognitionResult> {
         return recognitionSubject.asObservable()
     }
 
-    private let disposeBag = DisposeBag()
+    private var disposeBag = DisposeBag()
 
     // MARK: - Life Cycles
 
@@ -76,7 +90,7 @@ class SpeechRecognitionManager: NSObject, SFSpeechRecognizerDelegate {
     }
 
     func startRecording() -> Observable<Error?> {
-        recognitionSubject = PublishSubject<String>()
+        recognitionSubject = PublishSubject<RecognitionResult>()
         return Observable.create { [weak self] observer in
             guard let self = self else {
                 observer.onNext(NSError(domain: "com.example.speechrecognition", code: 2, userInfo: [NSLocalizedDescriptionKey: "Manager deallocated"]))
@@ -106,8 +120,15 @@ class SpeechRecognitionManager: NSObject, SFSpeechRecognizerDelegate {
                 let inputNode = self.audioEngine.inputNode
                 self.recognitionTask = self.speechRecognizer.recognitionTask(with: recognitionRequest) { result, error in
                     if let result = result {
-                        self.recognitionSubject.onNext(result.bestTranscription.formattedString)
+                        print("현재 상태: ", result.isFinal)
+                        self.isFinal = result.isFinal
+                        
+                        let recognitionResult = RecognitionResult(text: result.bestTranscription.formattedString, isFinal: result.isFinal)
+
+                        self.recognitionSubject.onNext(recognitionResult)
                         print(result.bestTranscription.formattedString)
+                        
+//                        self.latestTranscription = result.bestTranscription.formattedString
                     } else if let error = error {
                         observer.onNext(error)
                         observer.onCompleted()
@@ -159,10 +180,17 @@ class SpeechRecognitionManager: NSObject, SFSpeechRecognizerDelegate {
     func stopRecording() {
         audioEngine.stop()
         recognitionRequest?.endAudio()
-        audioEngine.inputNode.removeTap(onBus: 0)
-        recognitionTask?.cancel()
-        recognitionTask = nil
-        recognitionRequest = nil
-        recognitionSubject.onCompleted()
+        
+        isFinalSubject
+            .filter { $0 == true }
+//            .take(1) // 처음으로 ture 가 나오면 그 이후의 이벤트는 무시
+            .subscribe(onNext: { [weak self] _ in
+                self?.audioEngine.inputNode.removeTap(onBus: 0)
+                self?.recognitionTask?.cancel()
+                self?.recognitionTask = nil
+                self?.recognitionRequest = nil
+                self?.recognitionSubject.onCompleted()
+            })
+            .disposed(by: disposeBag)
     }
 }

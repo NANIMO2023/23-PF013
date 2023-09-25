@@ -8,7 +8,7 @@
 import UIKit
 import RxSwift
 
-class SpeechButtonTextFieldView: UIView{
+class SpeechTextFieldView: UIView{
     
     // MARK: - Properties
     
@@ -23,14 +23,11 @@ class SpeechButtonTextFieldView: UIView{
             bindChattingViewModel()
         }
     }
-    
-//    var speechButton: SpeechButtonView
 
     private let disposeBag = DisposeBag()
     
     lazy var textFieldView: UITextField = {
         let textfield = UITextField()
-        textfield.placeholder = "입력해서 말하기"
         textfield.textColor = .bulletGray
         textfield.backgroundColor = .clear
         return textfield
@@ -40,6 +37,8 @@ class SpeechButtonTextFieldView: UIView{
         let view = UIView()
         view.backgroundColor = UIColor(red: 217/255, green: 217/255, blue: 217/255, alpha: 0.24)
         view.layer.cornerRadius = 20
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.detailBackgroundGrayButton.cgColor
         return view
     }()
     
@@ -47,7 +46,6 @@ class SpeechButtonTextFieldView: UIView{
     
     init(viewModel: SpeechViewModel, chattingViewModel: ChattingViewModel) {
         self.viewModel = viewModel
-//        self.speechButton = SpeechButtonView(viewModel: viewModel)
         self.chattingViewModel = chattingViewModel
         
         super.init(frame: .zero)
@@ -73,20 +71,15 @@ class SpeechButtonTextFieldView: UIView{
     
     func configureTextField() {
         self.addSubview(textFieldBackground)
-        
         textFieldBackground.addSubview(textFieldView)
-//        textFieldBackground.addSubview(speechButton)
-    
-        
+
         textFieldBackground.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing:self.trailingAnchor, paddingTop: 10, paddingLeading: 5, paddingTrailing: 5)
         
         textFieldView.anchor(top: textFieldBackground.topAnchor, leading: textFieldBackground.leadingAnchor, bottom: textFieldBackground.bottomAnchor,trailing: textFieldBackground.trailingAnchor, paddingTop: 10, paddingLeading: 12, paddingBottom: 10, paddingTrailing: 12, height: 24)
-        
-//        speechButton.anchor(top: textFieldBackground.topAnchor, leading: textFieldBackground.leadingAnchor, bottom: textFieldBackground.bottomAnchor,trailing: textFieldView.leadingAnchor, paddingTop: 6, paddingLeading: 8, paddingBottom: 6, paddingTrailing: 12, width: 38, height: 32)
     }
 }
 
-extension SpeechButtonTextFieldView {
+extension SpeechTextFieldView {
     private func bindViewModel() {
         guard let viewModel = viewModel else {
             return

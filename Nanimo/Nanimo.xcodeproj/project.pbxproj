@@ -8,12 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		3F3624992A7D50730066E531 /* LaunchPadTappedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624982A7D50730066E531 /* LaunchPadTappedViewController.swift */; };
-		3F36249F2A7D51670066E531 /* SpeechButtonTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249E2A7D51670066E531 /* SpeechButtonTextFieldView.swift */; };
+		3F36249F2A7D51670066E531 /* SpeechTextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F36249E2A7D51670066E531 /* SpeechTextFieldView.swift */; };
 		3F3624A32A7D51AF0066E531 /* SpeechNotificationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A22A7D51AF0066E531 /* SpeechNotificationView.swift */; };
 		3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A42A7D51C70066E531 /* SentenceTableView.swift */; };
 		3F3624A72A7D51EB0066E531 /* SentenceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F3624A62A7D51EB0066E531 /* SentenceTableViewCell.swift */; };
 		3F3624AE2A7D52B90066E531 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = 3F3624AD2A7D52B90066E531 /* RxDataSources */; };
 		3F61F9FE2AAEF59400B41AEB /* ReversedChattingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61F9FD2AAEF59400B41AEB /* ReversedChattingTableViewCell.swift */; };
+		3F61FA022AB8075A00B41AEB /* LastMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F61FA012AB8075A00B41AEB /* LastMessageView.swift */; };
 		3F72E80C2A8FA4C6008E2579 /* SpeechRecognitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F72E80B2A8FA4C6008E2579 /* SpeechRecognitionManager.swift */; };
 		3F7DBD0A2A86226C00410404 /* ChattingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F7DBD092A86226C00410404 /* ChattingViewModel.swift */; };
 		BF05C3252A5D63490086C4B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF05C3242A5D63490086C4B8 /* AppDelegate.swift */; };
@@ -77,7 +78,7 @@
 		3F3624982A7D50730066E531 /* LaunchPadTappedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchPadTappedViewController.swift; sourceTree = "<group>"; };
 		3F36249A2A7D51030066E531 /* SpeechViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechViewModel.swift; sourceTree = "<group>"; };
 		3F36249C2A7D512B0066E531 /* SentenceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceModel.swift; sourceTree = "<group>"; };
-		3F36249E2A7D51670066E531 /* SpeechButtonTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechButtonTextFieldView.swift; sourceTree = "<group>"; };
+		3F36249E2A7D51670066E531 /* SpeechTextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechTextFieldView.swift; sourceTree = "<group>"; };
 		3F3624A02A7D51910066E531 /* SpeechButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechButtonView.swift; sourceTree = "<group>"; };
 		3F3624A22A7D51AF0066E531 /* SpeechNotificationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechNotificationView.swift; sourceTree = "<group>"; };
 		3F3624A42A7D51C70066E531 /* SentenceTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentenceTableView.swift; sourceTree = "<group>"; };
@@ -85,6 +86,7 @@
 		3F3624A82A7D520E0066E531 /* ChattingTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableView.swift; sourceTree = "<group>"; };
 		3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingTableViewCell.swift; sourceTree = "<group>"; };
 		3F61F9FD2AAEF59400B41AEB /* ReversedChattingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReversedChattingTableViewCell.swift; sourceTree = "<group>"; };
+		3F61FA012AB8075A00B41AEB /* LastMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastMessageView.swift; sourceTree = "<group>"; };
 		3F72E80B2A8FA4C6008E2579 /* SpeechRecognitionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechRecognitionManager.swift; sourceTree = "<group>"; };
 		3F7DBD092A86226C00410404 /* ChattingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingViewModel.swift; sourceTree = "<group>"; };
 		BF05C3212A5D63490086C4B8 /* Nanimo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Nanimo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,7 +158,7 @@
 			isa = PBXGroup;
 			children = (
 				3F3624982A7D50730066E531 /* LaunchPadTappedViewController.swift */,
-				3F36249E2A7D51670066E531 /* SpeechButtonTextFieldView.swift */,
+				3F36249E2A7D51670066E531 /* SpeechTextFieldView.swift */,
 				3F3624A02A7D51910066E531 /* SpeechButtonView.swift */,
 				3F3624A22A7D51AF0066E531 /* SpeechNotificationView.swift */,
 				3F3624A42A7D51C70066E531 /* SentenceTableView.swift */,
@@ -164,6 +166,7 @@
 				3F3624A82A7D520E0066E531 /* ChattingTableView.swift */,
 				3F3624AA2A7D522B0066E531 /* ChattingTableViewCell.swift */,
 				3F61F9FD2AAEF59400B41AEB /* ReversedChattingTableViewCell.swift */,
+				3F61FA012AB8075A00B41AEB /* LastMessageView.swift */,
 			);
 			path = LaunchPad;
 			sourceTree = "<group>";
@@ -489,7 +492,7 @@
 				3F3624A32A7D51AF0066E531 /* SpeechNotificationView.swift in Sources */,
 				BF4D853E2A728D4B0030C02D /* BulletView.swift in Sources */,
 				3F7DBD0A2A86226C00410404 /* ChattingViewModel.swift in Sources */,
-				3F36249F2A7D51670066E531 /* SpeechButtonTextFieldView.swift in Sources */,
+				3F36249F2A7D51670066E531 /* SpeechTextFieldView.swift in Sources */,
 				BF3679552A826AA90002598A /* SpeechViewModel.swift in Sources */,
 				BF4D85372A724FDB0030C02D /* AudioPointMarkView.swift in Sources */,
 				BF05C3622A5E51750086C4B8 /* Color+Extension.swift in Sources */,
@@ -517,6 +520,7 @@
 				BF3679532A826AA10002598A /* IdentifierTranslationHelper.swift in Sources */,
 				BF05C3272A5D63490086C4B8 /* SceneDelegate.swift in Sources */,
 				3F3624A52A7D51C70066E531 /* SentenceTableView.swift in Sources */,
+				3F61FA022AB8075A00B41AEB /* LastMessageView.swift in Sources */,
 				BF3679562A826AC10002598A /* SentenceModel.swift in Sources */,
 				BF05C3672A5E55350086C4B8 /* MainViewController.swift in Sources */,
 				BF3679572A826AD30002598A /* SpeechButtonView.swift in Sources */,

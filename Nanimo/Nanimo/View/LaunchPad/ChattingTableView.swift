@@ -14,6 +14,7 @@ class ChattingTableView: UITableView {
     // MARK: - Properties
     
     var isReversed: Bool = false
+    private var isSuccessRecognition = false
     
     var viewModel: ChattingViewModel? {
         didSet {
@@ -61,10 +62,24 @@ extension ChattingTableView {
             viewModel.incomingMessages
                 .bind(to: self.rx.items(cellIdentifier: ReversedChattingTableViewCell.reverseChattingCellId, cellType: ReversedChattingTableViewCell.self)) { [weak self] row, message, cell in
                     print("incomingMessage: \(message)")
-                    cell.configure(name: message)
+                    cell.configure(name: message.text)
                     viewModel.updateHeight(cell.chattingBackgroundHeight)
+                    
+                    if message.isFinal {
+                        cell.updateDesign(isFinalized: self?.isSuccessRecognition ?? false)
+                    }
+                    
                 }
                 .disposed(by: disposeBag)
         }
+        
+        viewModel.isInputCompletedRelay
+            .asObservable()
+            .distinctUntilChanged() // 이전 값과 동일한 값의 연속적인 이벤트는 필터링합니다.
+            .filter { $0 == true }  // true 값만을 필터링합니다.
+            .subscribe(onNext: { [weak self] result in
+                self?.isSuccessRecognition = result
+                print("Cell 상태: ",self?.isSuccessRecognition)
+            })
     }
 }
