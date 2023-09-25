@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreImage
 
 // MARK: - Auto Layout
 extension UIView {
@@ -142,3 +143,52 @@ extension UIView {
     }
 }
 
+extension UIView {
+    func applyGaussianBlurToView(blurRadius: Double = 10) {
+        // 기존에 Blur 가 있다면 제거
+        removeBlurredImageView()
+        
+        // blur 된 이미지를 얻기 위해 view 를 Image 화
+        let blurredImage = getBlurryImage(blurRadius)
+        
+        // 화면에 출력하기 위해 UIImageView 로 변경
+        let blurredImageView = UIImageView(image: blurredImage)
+        blurredImageView.translatesAutoresizingMaskIntoConstraints = false
+        blurredImageView.contentMode = .scaleAspectFill
+        addSubview(blurredImageView)
+        
+        blurredImageView.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor)
+    }
+    
+    func removeBlurredImageView() {
+        subviews.forEach { subview in
+            if subview is UIImageView {
+                subview.removeFromSuperview()
+            }
+        }
+    }
+    
+    private func getBlurryImage(_ blurRadius: Double = 2.5) -> UIImage? {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, false, UIScreen.main.scale)
+        layer.render(in: UIGraphicsGetCurrentContext()!)
+        guard let image = UIGraphicsGetImageFromCurrentImageContext(),
+              let blurFilter = CIFilter(name: "CIGaussianBlur") else {
+            UIGraphicsEndImageContext()
+            return nil
+        }
+        UIGraphicsEndImageContext()
+        
+        blurFilter.setDefaults()
+        blurFilter.setValue(CIImage(image: image), forKey: kCIInputImageKey)
+        blurFilter.setValue(blurRadius, forKey: kCIInputRadiusKey)
+        
+        var convertedImage: UIImage?
+        let context = CIContext(options: nil)
+        if let blurOutputImage = blurFilter.outputImage,
+           let cgImage = context.createCGImage(blurOutputImage, from: blurOutputImage.extent) {
+            convertedImage = UIImage(cgImage: cgImage)
+        }
+        
+        return convertedImage
+    }
+}

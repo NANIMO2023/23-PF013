@@ -9,9 +9,9 @@ import UIKit
 
 class PlaceHolderView: UIView {
     
-    private lazy var largeTitleLabel = UILabel()
+    lazy var largeTitleLabel = UILabel()
     
-    private lazy var subTitleLabel = {
+    lazy var subTitleLabel = {
         let label = UILabel()
         label.text = """
         당신의 말을 글로 받아 적어
@@ -29,7 +29,8 @@ class PlaceHolderView: UIView {
     init() {
         super.init(frame: .zero)
         
-        largeTitleLabel.setLabel(labelText: "안녕하세요!", backgroundColor: .clear, weight: .black, textSize: 32, labelColor: .placeHolderGray)
+        largeTitleLabel.setLabel(labelText: "안녕하세요", backgroundColor: .clear, weight: .black, textSize: 32, labelColor: .placeHolderGray)
+        
         configurePlaceHolder()
     }
     
@@ -42,8 +43,8 @@ class PlaceHolderView: UIView {
             self.addSubview($0)
         }
 
-        largeTitleLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.subTitleLabel.topAnchor, trailing: self.trailingAnchor, paddingBottom: 6)
+        largeTitleLabel.anchor(top: self.topAnchor, leading: self.leadingAnchor, bottom: self.subTitleLabel.topAnchor, trailing: self.trailingAnchor, paddingBottom: 6, height: 38)
         
-        subTitleLabel.anchor(leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor)
+        subTitleLabel.anchor(leading: self.leadingAnchor, bottom: self.bottomAnchor, trailing: self.trailingAnchor, height: 96)
     }
 }

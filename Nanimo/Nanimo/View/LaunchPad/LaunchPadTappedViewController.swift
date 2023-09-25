@@ -40,7 +40,6 @@ class LaunchPadTappedViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.backgroundColor = .white
         speechTextFieldView.backgroundColor = .white
         
@@ -253,13 +252,16 @@ extension LaunchPadTappedViewController: SpeechButtonViewDelegate {
         print("현재 모드 : \(mode)")
         switch mode {
         case .speech:
-//            placeHolderView.addBlurEffect(style: .dark)
+            placeHolderView.applyGaussianBlurToView()
+            placeHolderView.largeTitleLabel.textColor = .white
+            placeHolderView.subTitleLabel.textColor = .white
             self.startRecognition()
             guard let index = chattingViewModel.currentEditingIndex else { return }
             chattingViewModel.currentEditingIndex = index + 1
         case .notspeech:
-//            placeHolderView.removeBlurEffect()
-            
+            placeHolderView.removeBlurredImageView()
+            placeHolderView.largeTitleLabel.textColor = .placeHolderGray
+            placeHolderView.subTitleLabel.textColor = .placeHolderGray
             SpeechRecognitionManager.shared.stopRecording()
         }
     }
